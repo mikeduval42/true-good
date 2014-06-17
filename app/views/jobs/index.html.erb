@@ -1,0 +1,16 @@
+<h1>Jobs#index</h1>
+
+<% @jobs.each do |t| %>
+  Time Preference: <%= t.time_preference %>
+  Tools: <%= t.tools %>
+  Type of Work: <%= t.type %>
+  Time Estimate: <%= t.duration %>
+  <% if t.recurring == true %>
+    This is a recurring task.
+  <% else %>
+    This is a one time only task.
+  <% end %>
+  Location: <%= t.location %>
+  Phone# <%= t.contact_phone %>
+  Email: <%= t.contact_email %>
+<% end %>
