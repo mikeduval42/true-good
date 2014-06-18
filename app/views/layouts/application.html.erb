@@ -1,14 +1,124 @@
-<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Truegood</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
 
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title><%= content_for?(:title) ? yield(:title) : "trueGood" %></title>
+
+
+<%= stylesheet_link_tag    "application" %>
+<%= javascript_include_tag "vendor/modernizr" %>
+<%= csrf_meta_tags %>
+</head>
+
+<body>
+<div ng-app="job-app" class="container">
+  <div ng-controller="JobCtrl">
+
+
+
+
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <section class="top-bar-section">
+            <!-- Left Nav Section -->
+            <ul class="left white">
+                <li>
+                    <!-- this is the about page pop up bow below -->
+                    <a href="#" class="njob" data-reveal-id="myModal"><strong>About</strong></a>
+                    <div id="myModal" class="reveal-modal" data-reveal>
+                    <h2>trueGood</h2>
+                    <p>We created trueGood to connect the elderly and disabled with volunteers who have the desire to perform household tasks for them. Sign up and start spreading the trueGood.</p>
+                    <h3>Created By</h3>
+                    <p>Matt Kam and Mike Duval</p>
+                    <a class="close-reveal-modal">&#215;</a>
+                    </div>
+                </li>
+                <%# if current_user %>
+                <li>
+                  <a href="http://localhost:3000/jobs">Home</a>
+                </li>
+                <li>
+                    <!-- this is an attempt at a new resource page! -->
+                    <a href="#" class="njob" data-reveal-id="myModal1"><strong>New Job</strong></a>
+                    <div id="myModal1" class="reveal-modal" data-reveal>
+                    <!-- <div ng-show="current_user == <%#= current_user ? current_user : !current_user %>"> -->
+                    <h3>New Job:</h3>
+                        <form name="form" ng-submit="saveJob();" class="form-group" >
+                              <label for="time_preference">Time Preference:</label>
+                              <input ng-model="newJob.time_preference" type="text" name="time_preference" class="form-control" placeholder="Time Preference">
+                              <label for="tools">Tools:</label>
+                              <input ng-model="newJob.tools" type="text" name="tools" class="form-control" placeholder="Tools">
+                              <label for="type">Type:</label>
+                              <input ng-model="newJob.type" type="text" name="type" class="form-control" placeholder="Type">
+                              <label for="duration">Duration:</label>
+                              <input ng-model="newJob.duration" type="text" name="duration" class="form-control" placeholder="Duration">
+                              <label for="recurring">Recurring:</label>
+                              <input ng-model="newJob.recurring" type="checkbox" name="recurring" class="form-control" placeholder="Recurring">
+                              <label for="location">Location:</label>
+                              <input ng-model="newJob.location" type="text" name="location" class="form-control" placeholder="Location">
+                              <label for="contact_phone">Phone #:</label>
+                              <input ng-model="newJob.contact_phone" type="text" name="contact_phone" class="form-control" placeholder="Phone #">
+                              <label for="contact_email">Email:</label>
+                              <input ng-model="newJob.contact_email" type="text" name="contact_email" class="form-control" placeholder="Email">
+                              <!-- <input ng-model="newResource.description" name="description" class="form-control"placeholder="Description"> --><br>
+                              <input type="submit" value="Add a New Job!" class="btn btn-primary">
+                        </form>
+                  <!-- </div> -->
+                  <a class="close-reveal-modal">&#215;</a>
+                  </div>
+                </li>
+                <%# end %>
+            </ul>
+
+              <!-- Right Nav Section -->
+            <ul class="right">
+              <%# if !current_user %>
+                <li>
+                  <a href="#" data-reveal-id="myModal3"><strong>Sign In</strong></a>
+                    <div id="myModal3" class="reveal-modal" data-reveal>
+                      <%= render :partial => 'sessions/new' %>
+                      <a class="close-reveal-modal">&#215;</a>
+                    </div>
+                </li>
+              <%# end %>
+              <%# if current_user %>
+                <li>
+                  <%= link_to "Sign Out", sessions_path, :method => :delete , style: 'font-weight:bold;'%>
+                </li>
+              <%# end %>
+              <%# if !current_user %>
+
+                <li>
+                  <a href="#" data-reveal-id="myModal6"><strong>Sign Up</strong></a>
+                  <div id="myModal6" class="reveal-modal" data-reveal>
+                    <%= render :partial => 'users/new' %>
+                    <a class="close-reveal-modal">&#215;</a>
+                  </div>
+                </li>
+                <%# end %>
+            </ul>
+
+</section>
+</nav>
+<!-- nav bar above - no formatted yet! -->
+
+
+<!-- <a href="#" data-dropdown="drop1" class="button dropdown">Dropdown Button</a><br>
+<ul id="drop1" data-dropdown-content class="f-dropdown">
+<li><%#=  session[:remember_token] %></li>
+<#% if !current_user %>
+<li><%#= link_to "Sign Up", new_user_path %></li>
+<li><%#= link_to "Sign In", new_sessions_path %></li>
+<#% else %>
+<li><%#= link_to "Sign Out", sessions_path, :method => :delete %></li>
+<#% end %>
+</ul> -->
+<%= javascript_include_tag "application" %>
 <%= yield %>
+
 
 </body>
 </html>

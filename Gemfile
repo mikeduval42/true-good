@@ -24,6 +24,8 @@ gem 'jquery-rails'
 gem 'angularjs-rails'
 gem 'rspec-rails', '< 3.0.0'
 gem 'foundation-rails'
+gem 'active_model_serializers'
+gem 'rails_12factor'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'

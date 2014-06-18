@@ -1,3 +1,76 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+
+var jobApp = angular.module('job-app', ['ngResource', 'mm.foundation']).config(
+    ['$httpProvider', function($httpProvider) {
+    var authToken = angular.element("meta[name=\"csrf-token\"]").attr("content");
+    var defaults = $httpProvider.defaults.headers;
+
+    defaults.common["X-CSRF-TOKEN"] = authToken;
+    defaults.patch = defaults.patch || {};
+    defaults.patch['Content-Type'] = 'application/json';
+    defaults.common['Accept'] = 'application/json';
+}]);
+
+jobApp.factory('Job', ['$resource', function($resource) {
+  return $resource('/jobs/:id',
+     {id: '@id'},
+     {update: { method: 'PATCH'}});
+}]);
+
+jobApp.controller('JobCtrl', ['$scope', 'Job', function($scope, Job ) {
+    $scope.jobs= [];
+
+    $scope.newJob = new Job();
+
+    // $scope.aside = {
+    //   "title": "GA Sidebar",
+    //   "content": "Hello GA STUDENTS!!<br />This is a multiline message!"
+    // };
+
+    Job.query(function(jobs) {
+      $scope.jobs = jobs;
+   });
+
+    $scope.saveJob = function () {
+      $scope.newJob.$save(function(job) {
+        $scope.jobs.unshift(job)
+        $scope.newJob = new Job();
+      });
+    }
+
+    $scope.deleteJob = function(job) {
+      job.$delete(function() {
+        position = $scope.jobs.indexOf(job);
+        $scope.jobs.splice(position, 1);
+      });
+    }
+
+    $scope.showJob = function(job) {
+      job.details = true;
+      // job.editing = false;
+    }
+
+    $scope.hideJob = function(job) {
+      job.details = false;
+    }
+
+    $scope.editJob = function(job) {
+      job.editing = true;
+      job.details = false;
+    }
+
+    $scope.backJob = function(job) {
+      job.editing = false;
+    }
+
+    $scope.updateJob   = function(job) {
+      job.$update(function() {
+        job.editing = false;
+      // }, function(errors) {
+      //   $scope.errors = errors.data
+      });
+    };
+
+    // $scope.clearErrors = function() {
+    //   $scope.errors = null;
+    // }
+}]);
