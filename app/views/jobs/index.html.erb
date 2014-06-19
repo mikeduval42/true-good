@@ -4,33 +4,33 @@
         <div class="form-group">
           <input ng-model="searchJob" name="searchbox" type="text" class="form-control search" id="searchbar" placeholder="Search">
         </div>
-        <div ng-show="errors" class="alert alert-danger alert-dismissable">
-          <button type="button" class="close" ng-click="clearErrors();" aria-hidden="true">&times;</button>
-          <ul>
-            <li ng-repeat="(attribute, error) in errors">
-              {{attribute}} {{error.join(", ")}}
-            </li>
-          </ul>
-        </div>
         <div class="scroll">
           <table class="table">
             <tbody id="resultsfield" >
-              <tr class="job" ng-repeat="job in jobs | filter:searchResource ">
+              <tr class="job" ng-repeat="job in jobs | filter:searchJob ">
                 <td class="links">
-                    <label for="time_preference">Time Preference:</label><strong>{{job.time_preference}}</strong><br>
-                    <label for="tools">Tools:<strong>{{job.tools}}</strong><br>
-                    <label for="type_of_work">Type of Work:</label><strong>{{job.type_of_work}}</strong><br>
-                    <label for="duration">Job Duration:</label><strong>{{job.duration}}</strong><br>
-                    <label for="recurring">Recurring:</label><strong>{{job.recurring}}</strong><br>
-                    <label for="location">Location:</label> <strong>{{job.location}}</strong><br>
-                    <label for="contact_phone">Phone Number:</label><strong>{{job.contact_phone}}</strong><br>
-                    <label for="contact_email">Email:</label><strong>{{job.contact_email}}</strong><br>
+                    <label for="time_preference">Time Preference:</label>
+                      <strong>{{job.time_preference}}</strong><br>
+                    <label for="tools">Tools:</label>
+                      <strong>{{job.tools}}</strong><br>
+                    <label for="type_of_work">Type of Work:</label>
+                      <strong>{{job.type_of_work}}</strong><br>
+                    <label for="duration">Job Duration:</label>
+                      <strong>{{job.duration}}</strong><br>
+                    <label for="recurring">Recurring:</label>
+                      <strong>{{job.recurring}}</strong><br>
+                    <label for="location">Location:</label> 
+                      <strong>{{job.location}}</strong><br>
+                    <label for="contact_phone">Phone Number:</label>
+                      <strong>{{job.contact_phone}}</strong><br>
+                    <label for="contact_email">Email:</label>
+                      <strong>{{job.contact_email}}</strong><br>
                     <br>
 
                 <form ng-show="job.editing" ng-submit="updateJob(job);" class="form-group">
 
                   <label for="time_preference">Time Preference:</label>
-                  <input ng-model="job.time_preference" type="text" name="time_preference" class="form-control" placeholder="Time Preference">
+                  <input ng-model="job.time_preference" type="time" name="time_preference" class="form-control" placeholder="Time Preference">
                   <label for="tools">Tools:</label>
                   <input ng-model="job.tools" type="text" name="tools" class="form-control" placeholder="Tools">
                   <label for="type_of_work">Type:</label>
@@ -38,13 +38,13 @@
                   <label for="duration">Duration:</label>
                   <input ng-model="job.duration" type="text" name="duration" class="form-control" placeholder="Duration">
                   <label for="recurring">Recurring:</label>
-                  <input ng-model="job.recurring" type="text" name="recurring" class="form-control" placeholder="Recurring">
+                  <input ng-model="job.recurring" type="checkbox" name="recurring" class="form-control" placeholder="Recurring">
                   <label for="location">Location:</label>
                   <input ng-model="job.location" type="text" name="location" class="form-control" placeholder="Location">
                   <label for="contact_phone">Phone Number:</label>
-                  <input ng-model="job.contact_phone" type="text" name="contact_phone" class="form-control" placeholder="Phone Number">
+                  <input ng-model="job.contact_phone" type="tel" name="contact_phone" class="form-control" placeholder="Phone Number">
                   <label for="contact_email">Email:</label>
-                  <input ng-model="job.contact_phone" type="text" name="contact_phone" class="form-control" placeholder="Phone Number">
+                  <input ng-model="job.contact_phone" type="text" name="contact_phone" class="form-control" placeholder="Email">
                   <input type="submit" value="Update Job!" class="btn btn-primary">
                 </form>
 

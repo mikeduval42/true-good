@@ -1,7 +1,7 @@
 <%= form_for @job do |f| %>
   <%= f.text_field :time_preference, placeholder: "Enter your time preference" %>
   <%= f.text_field :tools, placeholder: "Enter what tools will be needed" %>
-  <%= f.text_field :type, placeholder: "What type of work will need to be done?" %>
+  <%= f.text_field :type_of_work, placeholder: "What type of work will need to be done?" %>
   <%= f.text_field :duration, placeholder: "How long will it take?" %>
   Is it a recurring job?<%= f.check_box :recurring %>
   <%= f.text_field :location, placeholder: "Enter your location" %>
