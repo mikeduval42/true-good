@@ -1,5 +1,4 @@
-
-var jobApp = angular.module('job-app', ['ngResource', 'mm.foundation']).config(
+var jobApp = angular.module('job-app', ['ngResource', 'mm.foundation', 'ui.router', 'templates' ]).config(
     ['$httpProvider', function($httpProvider) {
     var authToken = angular.element("meta[name=\"csrf-token\"]").attr("content");
     var defaults = $httpProvider.defaults.headers;
@@ -10,13 +9,50 @@ var jobApp = angular.module('job-app', ['ngResource', 'mm.foundation']).config(
     defaults.common['Accept'] = 'application/json';
 }]);
 
+jobApp.config(function($stateProvider, $urlRouterProvider) {
+  //
+  // For any unmatched url, redirect to /state1
+  $urlRouterProvider.otherwise("/home");
+  //
+  // Now set up the states
+  $stateProvider
+    .state('home', {
+      url: "/home",
+      templateUrl: "home.html"
+    })
+    .state('volunteers', {
+      url: "/volunteers",
+      templateUrl: "volunteers.html"
+     })
+    .state('jobs', {
+      url: "/jobs",
+      templateUrl: "jobs.html"
+     })
+    .state('good_in_numbers', {
+      url: "/good_in_numbers",
+      templateUrl: "good_in_numbers.html"
+     })
+    .state('resident_profile', {
+      url: "/resident_profile",
+      templateUrl: "resident_profile.html"
+     })
+    .state('volunteer_profile', {
+      url: "/volunteer_profile",
+      templateUrl: "volunteer_profile.html"
+     })
+    .state('corporation_profile', {
+      url: "/corporation_profile",
+      templateUrl: "corporation_profile.html"
+     })
+   });
+
 jobApp.factory('Job', ['$resource', function($resource) {
   return $resource('/jobs/:id',
      {id: '@id'},
      {update: { method: 'PATCH'}});
 }]);
 
-jobApp.controller('JobCtrl', ['$scope', 'Job', function($scope, Job ) {
+jobApp.controller('JobCtrl', ['$scope', 'Job', function($scope, Job) {
     $scope.jobs= [];
 
     $scope.newJob = new Job();
