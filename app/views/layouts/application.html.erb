@@ -7,9 +7,10 @@
 <title><%= content_for?(:title) ? yield(:title) : "trueGood" %></title>
 
 
-<%= stylesheet_link_tag    "application" %>
-<%= javascript_include_tag "vendor/modernizr" %>
+<%= stylesheet_link_tag "application" %>
+<%= javascript_include_tag "application" %>
 <%= csrf_meta_tags %>
+<!-- <script src="js/angular-ui-router.min.js"></script> -->
 </head>
 
 <body>
@@ -34,8 +35,9 @@
                 </li>
                 <%# if current_user %>
                 <li>
-                  <a href="http://localhost:3000/jobs">Home</a>
+                  <a ui-sref="home">Home</a>
                 </li>
+
                 <li>
                     <!-- this is an attempt at a new resource page! -->
                     <a href="#" class="njob" data-reveal-id="myModal1"><strong>New Job</strong></a>
@@ -67,7 +69,31 @@
                   <a class="close-reveal-modal">&#215;</a>
                   </div>
                 </li>
-                <%# end %>
+                <li class="name">
+                  <p>
+                    <a dropdown-toggle="#dropdown-example-1" class="left white">Options</a>
+                  </p>
+                  <ul id="dropdown-example-1" class="f-dropdown" >
+                    <li>
+                      <a ui-sref="jobs">Job</a>
+                    </li>
+                    <li>
+                      <a ui-sref="volunteers">Volunteers</a>
+                    </li>
+                    <li>
+                      <a ui-sref="good_in_numbers">Good in Numbers</a>
+                    </li>
+                    <li>
+                      <a ui-sref="resident_profile">R Profile</a>
+                    </li>
+                    <li>
+                      <a ui-sref="volunteer_profile">V Profile</a>
+                    </li>
+                    <li>
+                      <a ui-sref="corporation_profile">C Profile</a>
+                    </li>
+                  </ul>
+                </li>
             </ul>
 
               <!-- Right Nav Section -->

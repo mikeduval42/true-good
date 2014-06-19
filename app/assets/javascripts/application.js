@@ -14,7 +14,9 @@
 //= require jquery_ujs
 //= require angular
 //= require angular-resource
+//= require angular-rails-templates
 //= require foundation
+//= require_tree ./templates
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
