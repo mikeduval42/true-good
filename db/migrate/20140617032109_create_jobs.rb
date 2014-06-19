@@ -3,7 +3,7 @@ class CreateJobs < ActiveRecord::Migration
     create_table :jobs do |t|
       t.string :time_preference
       t.string :tools
-      t.string :type
+      t.string :type_of_work
       t.string :duration
       t.boolean :recurring
       t.string :location

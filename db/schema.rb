@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20140617191321) do
   create_table "jobs", force: true do |t|
     t.string   "time_preference"
     t.string   "tools"
-    t.string   "type"
+    t.string   "type_of_work"
     t.string   "duration"
     t.boolean  "recurring"
     t.string   "location"

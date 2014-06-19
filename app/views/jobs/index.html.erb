@@ -4,6 +4,14 @@
         <div class="form-group">
           <input ng-model="searchJob" name="searchbox" type="text" class="form-control search" id="searchbar" placeholder="Search">
         </div>
+        <div ng-show="errors" class="alert alert-danger alert-dismissable">
+          <button type="button" class="close" ng-click="clearErrors();" aria-hidden="true">&times;</button>
+          <ul>
+            <li ng-repeat="(attribute, error) in errors">
+              {{attribute}} {{error.join(", ")}}
+            </li>
+          </ul>
+        </div>
         <div class="scroll">
           <table class="table">
             <tbody id="resultsfield" >
@@ -11,21 +19,22 @@
                 <td class="links">
                     <label for="time_preference">Time Preference:</label><strong>{{job.time_preference}}</strong><br>
                     <label for="tools">Tools:<strong>{{job.tools}}</strong><br>
-                    <label for="type">Type of Job:</label><strong>{{job.type}}</strong><br>
+                    <label for="type_of_work">Type of Work:</label><strong>{{job.type_of_work}}</strong><br>
                     <label for="duration">Job Duration:</label><strong>{{job.duration}}</strong><br>
                     <label for="recurring">Recurring:</label><strong>{{job.recurring}}</strong><br>
                     <label for="location">Location:</label> <strong>{{job.location}}</strong><br>
                     <label for="contact_phone">Phone Number:</label><strong>{{job.contact_phone}}</strong><br>
                     <label for="contact_email">Email:</label><strong>{{job.contact_email}}</strong><br>
                     <br>
+
                 <form ng-show="job.editing" ng-submit="updateJob(job);" class="form-group">
 
                   <label for="time_preference">Time Preference:</label>
                   <input ng-model="job.time_preference" type="text" name="time_preference" class="form-control" placeholder="Time Preference">
                   <label for="tools">Tools:</label>
                   <input ng-model="job.tools" type="text" name="tools" class="form-control" placeholder="Tools">
-                  <label for="type">Type:</label>
-                  <input ng-model="job.type" type="text" name="type" class="form-control" placeholder="Type">
+                  <label for="type_of_work">Type:</label>
+                  <input ng-model="job.type_of_work" type="text" name="type_of_work" class="form-control" placeholder="Type of Work">
                   <label for="duration">Duration:</label>
                   <input ng-model="job.duration" type="text" name="duration" class="form-control" placeholder="Duration">
                   <label for="recurring">Recurring:</label>
