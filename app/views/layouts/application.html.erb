@@ -33,41 +33,41 @@
                     <a class="close-reveal-modal">&#215;</a>
                     </div>
                 </li>
-                <%# if current_user %>
                 <li>
                   <a ui-sref="home">Home</a>
                 </li>
-
                 <li>
                     <!-- this is an attempt at a new resource page! -->
+                    <% if current_user %>
                     <a href="#" class="njob" data-reveal-id="myModal1"><strong>New Job</strong></a>
                     <div id="myModal1" class="reveal-modal" data-reveal>
-                    <!-- <div ng-show="current_user == <%#= current_user ? current_user : !current_user %>"> -->
-                    <h3>New Job:</h3>
-                        <form name="form" ng-submit="saveJob();" class="form-group" >
-                              <label for="time_preference">Time Preference:</label>
-                                <input ng-model="newJob.time_preference" type="time" name="time_preference" class="form-control" placeholder="Time Preference">
-                              <label for="tools">Tools:</label>
-                                <input ng-model="newJob.tools" type="text" name="tools" class="form-control" placeholder="Tools">
-                              <label for="type_of_work">Type:</label>
-                                <input ng-model="newJob.type_of_work" type="text" name="type_of_work" class="form-control" placeholder="Type of Work">
-                              <label for="duration">Duration:</label>
-                                <input ng-model="newJob.duration" type="text" name="duration" class="form-control" placeholder="Duration">
-                              <label for="recurring">Recurring:</label>
-                                <input ng-model="newJob.recurring" type="checkbox" name="recurring" class="form-control"><br>
-                              <label for="location">Location:</label>
-                                <input ng-model="newJob.location" type="text" name="location" class="form-control" placeholder="Location">
-                              <label for="contact_phone">Phone #:</label>
-                                <input ng-model="newJob.contact_phone" type="tel" name="contact_phone" class="form-control" placeholder="Phone #">
-                              <label for="contact_email">Email:</label>
-                                <input ng-model="newJob.contact_email" type="email" name="contact_email" class="form-control" placeholder="Email">
-                              <!-- <input ng-model="newResource.description" name="description" class="form-control"placeholder="Description"> --><br>
-                              <input type="submit" value="Add a New Job!" class="btn btn-primary">
-                              <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
-                        </form>
-                  <!-- </div> -->
-                  <a class="close-reveal-modal">&#215;</a>
+                      <!-- <div ng-show="current_user == <%= current_user ? current_user : !current_user %>"> -->
+                      <h3>New Job:</h3>
+                          <form name="form" ng-submit="saveJob();" class="form-group" >
+                                <label for="time_preference"><strong>Time Preference:</strong></label>
+                                  <input ng-model="newJob.time_preference" type="time" name="time_preference" class="form-control" placeholder="Time Preference">
+                                <label for="tools"><strong>Tools:</strong></label>
+                                  <input ng-model="newJob.tools" type="text" name="tools" class="form-control" placeholder="Tools">
+                                <label for="type_of_work"><strong>Type:</strong></label>
+                                  <input ng-model="newJob.type_of_work" type="text" name="type_of_work" class="form-control" placeholder="Type of Work">
+                                <label for="duration"><strong>Duration:</strong></label>
+                                  <input ng-model="newJob.duration" type="text" name="duration" class="form-control" placeholder="Duration">
+                                <label for="recurring"><strong>Recurring:</strong></label>
+                                  <input ng-model="newJob.recurring" type="checkbox" name="recurring" class="form-control"><br>
+                                <label for="location"><strong>Location:</strong></label>
+                                  <input ng-model="newJob.location" type="text" name="location" class="form-control" placeholder="Location">
+                                <label for="contact_phone"><strong>Phone #:</strong></label>
+                                  <input ng-model="newJob.contact_phone" type="tel" name="contact_phone" class="form-control" placeholder="Phone #">
+                                <label for="contact_email"><strong>Email:</strong></label>
+                                  <input ng-model="newJob.contact_email" type="email" name="contact_email" class="form-control" placeholder="Email">
+                                <!-- <input ng-model="newResource.description" name="description" class="form-control"placeholder="Description"> --><br>
+                                <button type="submit" value="Add a New Job!" class="btn btn-primary">click</button>
+                          </form>
+                          <a class="close-reveal-modal">&#215;</a>
+                    </div>
+
                   </div>
+                  <% end %>
                 </li>
                 <li class="name">
                   <p>
@@ -83,22 +83,28 @@
                     <li>
                       <a ui-sref="good_in_numbers">Good in Numbers</a>
                     </li>
+                    <% if current_user.resident == true  %>
                     <li>
                       <a ui-sref="resident_profile">R Profile</a>
                     </li>
+                    <% end %>
+                    <% if current_user.volunteer == true  %>
                     <li>
                       <a ui-sref="volunteer_profile">V Profile</a>
                     </li>
+                     <% end %>
+                    <% if current_user.corporation == true  %>
                     <li>
                       <a ui-sref="corporation_profile">C Profile</a>
                     </li>
+                     <% end %>
                   </ul>
                 </li>
             </ul>
 
               <!-- Right Nav Section -->
             <ul class="right">
-              <%# if !current_user %>
+              <% if !current_user %>
                 <li>
                   <a href="#" data-reveal-id="myModal3"><strong>Sign In</strong></a>
                     <div id="myModal3" class="reveal-modal" data-reveal>
@@ -106,14 +112,6 @@
                       <a class="close-reveal-modal">&#215;</a>
                     </div>
                 </li>
-              <%# end %>
-              <%# if current_user %>
-                <li>
-                  <%= link_to "Sign Out", sessions_path, :method => :delete , style: 'font-weight:bold;'%>
-                </li>
-              <%# end %>
-              <%# if !current_user %>
-
                 <li>
                   <a href="#" data-reveal-id="myModal6"><strong>Sign Up</strong></a>
                   <div id="myModal6" class="reveal-modal" data-reveal>
@@ -121,9 +119,13 @@
                     <a class="close-reveal-modal">&#215;</a>
                   </div>
                 </li>
-                <%# end %>
-            </ul>
 
+              <% else %>
+                <li>
+                  <%= link_to "Sign Out", sessions_path, :method => :delete , style: 'font-weight:bold;'%>
+                </li>
+              <% end %>
+            </ul>
 </section>
 </nav>
 <!-- nav bar above - no formatted yet! -->

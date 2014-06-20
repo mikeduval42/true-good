@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       flash[:success] = "You have signed up successfully"
       session[:remember_token] = @user.id
       @current_user = @user
-      redirect_to jobs_path
+      redirect_to :root
     else
       render :new
     end
@@ -18,6 +18,6 @@ class UsersController < ApplicationController
   protected
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :is_admin)
+    params.require(:user).permit(:name, :email, :password)
   end
 end

@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20140617191321) do
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
-    t.string   "password"
+    t.string   "password_digest"
     t.boolean  "resident"
     t.boolean  "volunteer"
     t.boolean  "corporation"

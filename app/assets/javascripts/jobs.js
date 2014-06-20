@@ -12,21 +12,21 @@ var jobApp = angular.module('job-app', ['ngResource', 'mm.foundation', 'ui.route
 jobApp.config(function($stateProvider, $urlRouterProvider) {
   //
   // For any unmatched url, redirect to /state1
-  $urlRouterProvider.otherwise("/home");
+  $urlRouterProvider.otherwise("/jobs");
   //
   // Now set up the states
   $stateProvider
-    .state('home', {
-      url: "/home",
-      templateUrl: "home.html"
+    .state('jobs', {
+      url: "/jobs",
+      templateUrl: "jobs.html"
     })
     .state('volunteers', {
       url: "/volunteers",
       templateUrl: "volunteers.html"
      })
-    .state('jobs', {
-      url: "/jobs",
-      templateUrl: "jobs.html"
+    .state('home', {
+      url: "/home",
+      templateUrl: "home.html"
      })
     .state('good_in_numbers', {
       url: "/good_in_numbers",

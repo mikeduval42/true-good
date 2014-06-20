@@ -19,7 +19,7 @@ class JobsController < ApplicationController
       end
     else
       respond_to do |format|
-        format.html { render 'new' }
+        format.html { redirect_to 'new' }
         format.json { render json: @job.errors, status: :unprocessable_entity }
       end
     end
