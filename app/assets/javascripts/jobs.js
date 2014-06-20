@@ -52,7 +52,7 @@ jobApp.factory('Job', ['$resource', function($resource) {
      {update: { method: 'PATCH'}});
 }]);
 
-jobApp.controller('JobCtrl', ['$scope', 'Job', function($scope, Job) {
+jobApp.controller('JobCtrl', ['$scope','Job', '$modal', function($scope, Job, $modal) {
     $scope.jobs= [];
 
     $scope.newJob = new Job();
