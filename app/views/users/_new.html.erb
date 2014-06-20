@@ -1,7 +1,18 @@
 <%= form_for User.new do |f| %>
-  Name: <%= f.text_field :name %>
-  Email: <%= f.email_field :email %>
-  Password: <%= f.password_field :password %>
-
+  <strong>Name:</strong> <%= f.text_field :name, placeholder: 'Amy True' %>
+  <strong>Email:</strong> <%= f.email_field :email, placeholder: 'amytrue@good.com' %>
+  <strong>Password:</strong> <%= f.password_field :password, placeholder: 'Password' %>
+  <strong>Please Select Which of The Following Apply</strong> <br><br>
+  Resident <%= f.check_box :resident %>
+  Volunteer <%= f.check_box :volunteer %>
+  Corporation <%= f.check_box :corporation %><br>
+  <strong>Address:</strong> <%= f.text_field :address, placeholder: '123 trueGood Place' %>
+  <strong>City:</strong> <%= f.text_field :city, placeholder: 'City of Angels' %>
+  <strong>State:</strong> <%= f.text_field :state, placeholder: 'CA' %>
+  <strong>Zip:</strong> <%= f.text_field :zip, placeholder: '90030' %>
+  <strong>Please Fill Out the Below Information if Available</strong><br><br>
+  Background Check <%= f.check_box :background_check %><br>
+  Reference <%= f.check_box :reference %><br>
+  <strong>Reference Contact:</strong> <%= f.text_field :reference_contact, placeholder: 'Contact Name, Phone Number and Email' %>
   <%= f.submit %>
 <% end %>
