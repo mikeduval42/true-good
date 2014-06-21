@@ -22,50 +22,50 @@
           <section class="top-bar-section">
             <!-- Left Nav Section -->
             <ul class="left white">
-                <li>
-                    <!-- this is the about page pop up bow below -->
-                  <a href="#" class="njob" data-reveal-id="myModal"><strong>About</strong></a>
-                  <div id="myModal" class="reveal-modal" data-reveal>
-                    <h2>trueGood</h2>
-                      <p>We created trueGood to connect the elderly and disabled with volunteers who have the desire to perform household tasks for them. Sign up and start spreading the trueGood.</p>
-                    <h3>Created By</h3>
-                      <p>Matt Kam and Mike Duval</p>
-                  <a class="close-reveal-modal">&#215;</a>
-                  </div>
-                </li>
-                <li>
-                  <a ui-sref="home">Home</a>
-                </li>
-                <li>
-                  <!-- this is an attempt at a new resource page! -->
-                  <% if current_user %>
-                  <a href="#" class="njob" data-reveal-id="myModal1"><strong>New Job</strong></a>
-                  <div id="myModal1" class="reveal-modal" data-reveal>
-                    <!-- <div ng-show="current_user == <%= current_user ? current_user : !current_user %>"> -->
-                    <h3>New Job:</h3>
-                        <form name="form" ng-submit="saveJob();" class="form-group" >
-                              <label for="time_preference"><strong>Time Preference:</strong></label>
-                                <input ng-model="newJob.time_preference" type="time" name="time_preference" class="form-control" placeholder="Time Preference">
-                              <label for="tools"><strong>Tools:</strong></label>
-                                <input ng-model="newJob.tools" type="text" name="tools" class="form-control" placeholder="Tools">
-                              <label for="type_of_work"><strong>Type:</strong></label>
-                                <input ng-model="newJob.type_of_work" type="text" name="type_of_work" class="form-control" placeholder="Type of Work">
-                              <label for="duration"><strong>Duration:</strong></label>
-                                <input ng-model="newJob.duration" type="text" name="duration" class="form-control" placeholder="Duration">
-                              <label for="recurring"><strong>Recurring:</strong></label>
-                                <input ng-model="newJob.recurring" type="checkbox" name="recurring" class="form-control"><br>
-                              <label for="location"><strong>Location:</strong></label>
-                                <input ng-model="newJob.location" type="text" name="location" class="form-control" placeholder="Location">
-                              <label for="contact_phone"><strong>Phone #:</strong></label>
-                                <input ng-model="newJob.contact_phone" type="tel" name="contact_phone" class="form-control" placeholder="Phone #">
-                              <label for="contact_email"><strong>Email:</strong></label>
-                                <input ng-model="newJob.contact_email" type="email" name="contact_email" class="form-control" placeholder="Email">
-                              <!-- <input ng-model="newResource.description" name="description" class="form-control"placeholder="Description"> --><br>
-                              <button type="submit" value="Add a New Job!" class="btn btn-primary">click</button>
-                        </form>
-                        <a class="close-reveal-modal">&#215;</a>
-                  </div>
-                  <% end %>
+              <li>
+                  <!-- this is the about page pop up bow below -->
+                <a href="#" class="njob" data-reveal-id="myModal"><strong>About</strong></a>
+                <div id="myModal" class="reveal-modal" data-reveal>
+                  <h2>trueGood</h2>
+                    <p>We created trueGood to connect the elderly and disabled with volunteers who have the desire to perform household tasks for them. Sign up and start spreading the trueGood.</p>
+                  <h3>Created By</h3>
+                    <p>Matt Kam and Mike Duval</p>
+                <a class="close-reveal-modal">&#215;</a>
+                </div>
+              </li>
+              <li>
+                <a ui-sref="home">Home</a>
+              </li>
+              <li>
+                <!-- this is an attempt at a new resource page! -->
+                <div ng-controller="ModalCtrl">
+              <script type="text/ng-template" id="myModalContent.html">
+                <h3>New Job:</h3
+                  <form name="form" ng-submit="saveJob();" class="form-group" >
+                    <label for="time_preference"><strong>Time Preference:</strong></label>
+                      <input ng-model="newJob.time_preference" type="time" name="time_preference" class="form-control" placeholder="Time Preference">
+                    <label for="tools"><strong>Tools:</strong></label>
+                      <input ng-model="newJob.tools" type="text" name="tools" class="form-control" placeholder="Tools">
+                    <label for="type_of_work"><strong>Type:</strong></label>
+                      <input ng-model="newJob.type_of_work" type="text" name="type_of_work" class="form-control" placeholder="Type of Work">
+                    <label for="duration"><strong>Duration:</strong></label>
+                      <input ng-model="newJob.duration" type="text" name="duration" class="form-control" placeholder="Duration">
+                    <label for="recurring"><strong>Recurring:</strong></label>
+                      <input ng-model="newJob.recurring" type="checkbox" name="recurring" class="form-control"><br>
+                    <label for="location"><strong>Location:</strong></label>
+                      <input ng-model="newJob.location" type="text" name="location" class="form-control" placeholder="Location">
+                    <label for="contact_phone"><strong>Phone #:</strong></label>
+                      <input ng-model="newJob.contact_phone" type="tel" name="contact_phone" class="form-control" placeholder="Phone #">
+                    <label for="contact_email"><strong>Email:</strong></label>
+                      <input ng-model="newJob.contact_email" type="email" name="contact_email" class="form-control" placeholder="Email">
+                    <!-- <input ng-model="newResource.description" name="description" class="form-control"placeholder="Description"> --><br>
+                  </form>
+    <button class="button" ng-click="ok()">OK</button>
+    <a class="close-reveal-modal" ng-click="cancel()">&#215;</a>
+  </script>
+
+  <button class="button" ng-click="open()">New Task</button>
+</div>
                 </li>
                 <li >
                     <a dropdown-toggle="#dropdown-example-1" class="left white">Options</a>
