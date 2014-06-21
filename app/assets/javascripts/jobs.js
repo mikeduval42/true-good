@@ -12,21 +12,21 @@ var jobApp = angular.module('job-app', ['ngResource', 'mm.foundation', 'ui.route
 jobApp.config(function($stateProvider, $urlRouterProvider) {
   //
   // For any unmatched url, redirect to /state1
-  $urlRouterProvider.otherwise("/jobs");
+  $urlRouterProvider.otherwise("/home");
   //
   // Now set up the states
   $stateProvider
-    .state('jobs', {
-      url: "/jobs",
-      templateUrl: "jobs.html"
+    .state('home', {
+      url: "/home",
+      templateUrl: "home.html"
     })
     .state('volunteers', {
       url: "/volunteers",
       templateUrl: "volunteers.html"
      })
-    .state('home', {
-      url: "/home",
-      templateUrl: "home.html"
+    .state('jobs', {
+      url: "/jobs",
+      templateUrl: "jobs.html"
      })
     .state('good_in_numbers', {
       url: "/good_in_numbers",
@@ -52,20 +52,18 @@ jobApp.factory('Job', ['$resource', function($resource) {
      {update: { method: 'PATCH'}});
 }]);
 
-jobApp.controller('JobCtrl', ['$scope','Job', '$modal', function($scope, Job, $modal) {
+jobApp.controller('JobCtrl', ['$scope','Job', function($scope, Job) {
     $scope.jobs= [];
 
     $scope.newJob = new Job();
 
+    Job.query(function(jobs) {
+      $scope.jobs = jobs;
+   });
     // $scope.aside = {
     //   "title": "GA Sidebar",
     //   "content": "Hello GA STUDENTS!!<br />This is a multiline message!"
     // };
-
-    Job.query(function(jobs) {
-      $scope.jobs = jobs;
-   });
-
     $scope.saveJob = function () {
       $scope.newJob.$save(function(job) {
         $scope.jobs.unshift(job)
@@ -110,3 +108,40 @@ jobApp.controller('JobCtrl', ['$scope','Job', '$modal', function($scope, Job, $m
     //   $scope.errors = null;
     // }
 }]);
+var ModalCtrl = function ($scope, $modal, $log, $state) {
+
+  $scope.jobs = [];
+
+  $scope.open = function () {
+
+    var modalInstance = $modal.open({
+      templateUrl: 'myModalContent.html',
+      controller: ModalInstanceCtrl
+    });
+
+    modalInstance.result.then(function (newJob) {
+      newJob.$save(function(job) {
+        $state.reload();
+      });
+    }, function () {
+      $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
+};
+
+// Please note that $modalInstance represents a modal window (instance) dependency.
+// It is not the same as the $modal service used above.
+
+var ModalInstanceCtrl = function ($scope, $modalInstance, Job) {
+
+   $scope.newJob = new Job();
+
+  $scope.ok = function () {
+    $modalInstance.close($scope.newJob);
+  
+  };
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+};
