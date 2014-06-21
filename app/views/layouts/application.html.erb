@@ -37,9 +37,38 @@
                 <a ui-sref="home">Home</a>
               </li>
               <li>
+                    <a dropdown-toggle="#dropdown-example-1" class="left white">Options</a>
+                  <ul id="dropdown-example-1" >
+                    <li>
+                      <a ui-sref="jobs">Job</a>
+                    </li><br>
+                    <li>
+                      <a ui-sref="volunteers">Volunteers</a>
+                    </li><br>
+                    <li>
+                      <a ui-sref="good_in_numbers">Good in Numbers</a>
+                    </li><br>
+                    <%# if current_user.resident == true  %>
+                    <li>
+                      <a ui-sref="resident_profile">R Profile</a>
+                    </li><br>
+                    <%# end %>
+                    <%# if current_user.volunteer == true  %>
+                    <li>
+                      <a ui-sref="volunteer_profile">V Profile</a>
+                    </li><br>
+                     <%# end %>
+                    <%# if current_user.corporation == true  %>
+                    <li>
+                      <a ui-sref="corporation_profile">C Profile</a>
+                    </li>
+                     <%# end %>
+                  </ul>
+                </li>
+              <li>
                 <!-- this is an attempt at a new resource page! -->
                 <div ng-controller="ModalCtrl">
-              <script type="text/ng-template" id="myModalContent.html">
+              <script type="text/ng-template" id="myModalContent.html" >
                 <h3>New Job:</h3
                   <form name="form" ng-submit="saveJob();" class="form-group" >
                     <label for="time_preference"><strong>Time Preference:</strong></label>
@@ -64,38 +93,10 @@
     <a class="close-reveal-modal" ng-click="cancel()">&#215;</a>
   </script>
 
-  <button class="button" ng-click="open()">New Task</button>
+  <a ng-click="open()" style="color:white;">New Task</a>
 </div>
                 </li>
-                <li >
-                    <a dropdown-toggle="#dropdown-example-1" class="left white">Options</a>
-                  <ul id="dropdown-example-1" class="f-dropdown" >
-                    <li>
-                      <a ui-sref="jobs">Job</a>
-                    </li>
-                    <li>
-                      <a ui-sref="volunteers">Volunteers</a>
-                    </li>
-                    <li>
-                      <a ui-sref="good_in_numbers">Good in Numbers</a>
-                    </li>
-                    <%# if current_user.resident == true  %>
-                    <li>
-                      <a ui-sref="resident_profile">R Profile</a>
-                    </li>
-                    <%# end %>
-                    <%# if current_user.volunteer == true  %>
-                    <li>
-                      <a ui-sref="volunteer_profile">V Profile</a>
-                    </li>
-                     <%# end %>
-                    <%# if current_user.corporation == true  %>
-                    <li>
-                      <a ui-sref="corporation_profile">C Profile</a>
-                    </li>
-                     <%# end %>
-                  </ul>
-                </li>
+                
             </ul>
 
               <!-- Right Nav Section -->
