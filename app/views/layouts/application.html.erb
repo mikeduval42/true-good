@@ -36,7 +36,7 @@
               <li>
                 <a ui-sref="home">Home</a>
               </li>
-              <li>
+              <li >
                     <a dropdown-toggle="#dropdown-example-1" class="left white">Options</a>
                   <ul id="dropdown-example-1" >
                     <li>
@@ -48,28 +48,30 @@
                     <li>
                       <a ui-sref="good_in_numbers">Good in Numbers</a>
                     </li><br>
-                    <%# if current_user.resident == true  %>
-                    <li>
-                      <a ui-sref="resident_profile">R Profile</a>
-                    </li><br>
-                    <%# end %>
-                    <%# if current_user.volunteer == true  %>
-                    <li>
-                      <a ui-sref="volunteer_profile">V Profile</a>
-                    </li><br>
-                     <%# end %>
-                    <%# if current_user.corporation == true  %>
-                    <li>
-                      <a ui-sref="corporation_profile">C Profile</a>
-                    </li>
-                     <%# end %>
+                  <%if current_user %>
+                    <% if current_user.resident == true%>
+                      <li>
+                        <a ui-sref="resident_profile">rProfile</a>
+                      </li><br>
+                    <%elsif current_user.volunteer == true%>
+                      <li>
+                        <a ui-sref="volunteer_profile">vProfile</a>
+                      </li><br>
+                    <%elsif current_user.corporation == true%>
+                      <li>
+                        <a ui-sref="corporation_profile">cProfile</a>
+                      </li>
+                    <%end%>
+                  <%end%>
                   </ul>
-                </li>
+                </li> 
+                <%if current_user%>
               <li>
                 <!-- this is an attempt at a new resource page! -->
-                <div ng-controller="ModalCtrl">
-              <script type="text/ng-template" id="myModalContent.html" >
-                <h3>New Job:</h3
+
+                <div ng-controller="ModalCtrl" >
+              <script type="text/ng-template" id="myModalContent.html" class="modal">
+                <h3>New Job:</h3>
                   <form name="form" ng-submit="saveJob();" class="form-group" >
                     <label for="time_preference"><strong>Time Preference:</strong></label>
                       <input ng-model="newJob.time_preference" type="time" name="time_preference" class="form-control" placeholder="Time Preference">
@@ -89,14 +91,13 @@
                       <input ng-model="newJob.contact_email" type="email" name="contact_email" class="form-control" placeholder="Email">
                     <!-- <input ng-model="newResource.description" name="description" class="form-control"placeholder="Description"> --><br>
                   </form>
-    <button class="button" ng-click="ok()">OK</button>
-    <a class="close-reveal-modal" ng-click="cancel()">&#215;</a>
-  </script>
-
-  <a ng-click="open()" style="color:white;">New Task</a>
-</div>
+                <button class="button" ng-click="ok()">OK</button>
+                <a class="close-reveal-modal" ng-click="cancel()">&#215;</a>
+            </script>
+            <a ng-click="open()" style="color:white;">New Task</a>
+          </div>
                 </li>
-                
+                <%end%>
             </ul>
 
               <!-- Right Nav Section -->
