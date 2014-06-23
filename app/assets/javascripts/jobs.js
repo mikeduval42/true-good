@@ -52,10 +52,15 @@ jobApp.factory('Job', ['$resource', function($resource) {
      {update: { method: 'PATCH'}});
 }]);
 
+jobApp.factory('You', ['$resource', function($resource) {
+  return $resource('/you/:id',
+     {id: '@id'},
+     {update: { method: 'PATCH'}});
+}]);
 
 
-jobApp.controller('JobCtrl', ['$scope','Job', function($scope, Job) {
-   
+jobApp.controller('JobCtrl', ['$scope','Job', 'You', function($scope, Job, You) {
+  
     $scope.jobs= [];
 
     $scope.newJob = new Job();
@@ -63,6 +68,12 @@ jobApp.controller('JobCtrl', ['$scope','Job', function($scope, Job) {
     Job.query(function(jobs) {
       $scope.jobs = jobs;
    });
+
+    You.get(function(you){
+      $scope.you = you;
+    });
+   
+    
     // $scope.aside = {
     //   "title": "GA Sidebar",
     //   "content": "Hello GA STUDENTS!!<br />This is a multiline message!"
@@ -111,6 +122,7 @@ jobApp.controller('JobCtrl', ['$scope','Job', function($scope, Job) {
     //   $scope.errors = null;
     // }
 }]);
+
 var ModalCtrl = function ($scope, $modal, $log, $state) {
 
   $scope.jobs = [];
