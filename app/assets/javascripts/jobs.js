@@ -36,14 +36,6 @@ jobApp.config(function($stateProvider, $urlRouterProvider) {
       url: "/resident_profile",
       templateUrl: "resident_profile.html"
      })
-    .state('volunteer_profile', {
-      url: "/volunteer_profile",
-      templateUrl: "volunteer_profile.html"
-     })
-    .state('corporation_profile', {
-      url: "/corporation_profile",
-      templateUrl: "corporation_profile.html"
-     })
    });
 
 jobApp.factory('Job', ['$resource', function($resource) {
@@ -58,21 +50,31 @@ jobApp.factory('You', ['$resource', function($resource) {
      {update: { method: 'PATCH'}});
 }]);
 
+jobApp.factory('User', ['$resource', function($resource) {
+  return $resource('/users/:id',
+     {id: '@id'},
+     {update: { method: 'PATCH'}});
+}]);
 
-jobApp.controller('JobCtrl', ['$scope','Job', 'You', function($scope, Job, You) {
-  
+
+jobApp.controller('JobCtrl', ['$scope','Job', 'You', 'User', function($scope, Job, You, User) {
+
     $scope.jobs= [];
 
     $scope.newJob = new Job();
 
     Job.query(function(jobs) {
       $scope.jobs = jobs;
-   });
+    });
 
     You.get(function(you){
       $scope.you = you;
     });
-   
+
+    User.query(function(users) {
+      $scope.users = users;
+    });
+
    $scope.editUser = function(you) {
     you.editing = true;
     you.details = false;
@@ -80,12 +82,12 @@ jobApp.controller('JobCtrl', ['$scope','Job', 'You', function($scope, Job, You) 
    $scope.backUser = function(you) {
       you.editing = false;
     }
-   $scope.updateUser   = function(you) {
+   $scope.updateUser = function(you) {
       you.$update(function() {
         you.editing = false;
       });
     }
-   
+
     $scope.saveJob = function () {
       $scope.newJob.$save(function(job) {
         $scope.jobs.unshift(job)
@@ -161,7 +163,7 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, Job) {
 
   $scope.ok = function () {
     $modalInstance.close($scope.newJob);
-  
+
   };
 
   $scope.cancel = function () {

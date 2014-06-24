@@ -1,6 +1,6 @@
 <div class="container" >
   <div class="row">
-    <h1>JOBS</h1>
+    <h1 class="page_titles">JOBS</h1>
         <div class="form-group">
           <input ng-model="searchJob" name="searchbox" type="text" class="form-control search" id="searchbar" placeholder="Search">
         </div>
@@ -18,7 +18,6 @@
                 <th><strong>Email</strong></th>
                 <th><strong>Created By</strong></th>
                 <th><strong>Created At</strong></th>
-                <th></th>
               </tr>
               <tbody id="resultsfield" ng-repeat="job in jobs | filter:searchJob ">
               <tr>
@@ -40,7 +39,7 @@
                       <a ng-click="hideJob(job);" class="btn btn-info"> HIDE </a>
                     </span> -->
                 <!--   <div ng-hide="{{job.user_id}} == {{current_user.id}}"> -->
-                  <div ng-hide="{{you.id}} == {{job.user.id}}"
+                  <div ng-show="you.id == job.user.id">
                     <span ng-hide="job.editing">
                       <a ng-click="editJob(job);" class="btn btn-info"> EDIT </a>
                     </span>
@@ -63,7 +62,7 @@
                   <td>
                     <input ng-model="job.tools" type="text" name="tools" class="form-control" placeholder="Tools">
                   </td>
-                  
+
                   <td>
                     <input ng-model="job.time_preference" type="time" name="time_preference" class="form-control" placeholder="Time Preference">
                   </td>
@@ -87,10 +86,10 @@
                   </td>
                 </form>
               </tr>
-                  
+
         </tbody>
       </table>
     </div>
-          
+
   </div>
 </div>

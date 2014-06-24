@@ -17,19 +17,51 @@ class UsersController < ApplicationController
     respond_with @user
   end
 
+  def edit
+    @user = User.find(param[:id])
+  end
+
+  def update
+    @user = User.find(param[:id])
+    if @user.update_attributes(user_params)
+      respond_to do |format|
+        format.html {redirect_to jobs_path}
+        format.json {render nothing: true, status: :no_content}
+      end
+    else
+      respond_to do |format|
+        format.html {render 'edit'}
+        format.json {render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def new
     @user = User.new
   end
 
   def create
     @user = User.new(user_params)
+    @user.user.id = current_user.id
     if @user.save
-      flash[:success] = "You have signed up successfully"
-      session[:remember_token] = @user.id
-      @current_user = @user
-      redirect_to :root
+      respond_to do |format|
+        format.html {redirect_to jobs_path}
+        format.json {render json: @user, status: :created}
+      end
     else
-      render :new
+      respond_to do |format|
+        format.html {redirect_to 'new'}
+        format.json {render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @user = user.find(params[:id])
+    @user.destroy
+    respond_to do |format|
+      format.html {redirect_to :root}
+      format.json {render json: {head: :ok}}
     end
   end
 

@@ -49,7 +49,7 @@
                       <a ui-sref="good_in_numbers">Good in Numbers</a>
                     </li><br>
                   </ul>
-                </li> 
+                </li>
                 <%if current_user%>
               <li>
                 <!-- this is an attempt at a new resource page! -->
@@ -88,6 +88,7 @@
               <!-- Right Nav Section -->
             <ul class="right">
               <% if !current_user %>
+              <li>
                   <a href="#" data-reveal-id="myModal3"><strong>Sign In</strong></a>
                     <div id="myModal3" class="reveal-modal" data-reveal>
                       <%= render :partial => 'sessions/new' %>
@@ -105,7 +106,7 @@
               <% else %>
                 <li>
                   <a ui-sref="resident_profile">Profile</a>
-                <li>
+                </li>
                 <li>
                   <%= link_to "Sign Out", sessions_path, :method => :delete , style: 'font-weight:bold;'%>
                 </li>

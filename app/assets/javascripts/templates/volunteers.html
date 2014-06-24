@@ -1,5 +1,35 @@
 <div class="container">
 	<div class="row">
-		<h1>VOLUNTEERS</h1>
+		<h1 class="page_titles">VOLUNTEERS</h1>
+    <div class="form-group">
+      <input ng-model="searchUser" name="searchbox" type="text" class="form-control search" id="searchbar" placeholder="Search">
+    </div>
+    <div class="scroll">
+      <table class="table">
+        <tr>
+          <th><strong>Name</strong></th>
+          <th><strong>Email</strong></th>
+          <th><strong>Reference</strong></th>
+          <th><strong>Background Check</strong></th>
+          <th><strong>City</strong></th>
+          <th><strong>State</strong></th>
+          <th><strong>ZIP</strong></th>
+        </tr>
+      <tbody id="resultsfield" ng-repeat="user in users | filter:searchUser ">
+        <tr>
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.reference}}</td>
+          <td>{{user.background_check}}</td>
+          <td>{{user.city}}</td>
+          <td>{{user.state}}</td>
+          <td>{{user.zip}}</td>
+        </tr>
+
+
+
+
+
+    </tbody>
 	</div>
 </div>

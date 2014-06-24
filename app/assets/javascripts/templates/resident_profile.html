@@ -1,7 +1,7 @@
-<div class="container" ng-app="job-app">
+<div class="container">
 	<div class="row">
 		<div ng-hide="you.editing">
-		<h1>PROFILE</h1><br>
+		<h1 class="page_titles">PROFILE</h1><br>
 		<div ng-if="you.resident == true">
 			You are a Resident<br><br>
 		</div>
@@ -17,7 +17,7 @@
 			{{you.name}}<br><br>
 		<label for="email"><strong>Email</strong></label>
 			{{you.email}}<br><br>
-		
+
 		<label for="address"><strong>Address</strong></label>
 			{{you.address}}<br><br>
 		<label for="city"><strong>City</strong></label>
@@ -41,7 +41,7 @@
               	<label for="email"><strong>Email</strong></label>
                 <input ng-model="you.email" type="text" name="email" class="form-control" placeholder="Email">
               </div>
-              
+
               <div>
               	<label for="password"><strong>Password</strong></label>
                 <input ng-model="you.password" type="password" name="password" class="form-control" placeholder="Password">
