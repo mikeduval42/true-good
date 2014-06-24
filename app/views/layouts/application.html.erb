@@ -87,8 +87,17 @@
 
               <!-- Right Nav Section -->
             <ul class="right">
-              <% if !current_user %>
-              <li>
+              <% if current_user %>
+                <li>
+                  <a ui-sref="resident_profile">Profile</a>
+                </li>
+                <li>
+                  <%= link_to "Sign Out", sessions_path, :method => :delete , style: 'font-weight:bold;'%>
+                </li>
+
+              <% else %>
+
+                              <li>
                   <a href="#" data-reveal-id="myModal3"><strong>Sign In</strong></a>
                     <div id="myModal3" class="reveal-modal" data-reveal>
                       <%= render :partial => 'sessions/new' %>
@@ -101,14 +110,6 @@
                     <%= render :partial => 'users/new' %>
                     <a class="close-reveal-modal">&#215;</a>
                   </div>
-                </li>
-
-              <% else %>
-                <li>
-                  <a ui-sref="resident_profile">Profile</a>
-                </li>
-                <li>
-                  <%= link_to "Sign Out", sessions_path, :method => :delete , style: 'font-weight:bold;'%>
                 </li>
               <% end %>
             </ul>

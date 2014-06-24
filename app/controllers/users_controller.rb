@@ -42,8 +42,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.user.id = current_user.id
     if @user.save
+      session[:remember_token] = @user.id
+      @current_user = @user
       respond_to do |format|
         format.html {redirect_to jobs_path}
         format.json {render json: @user, status: :created}
