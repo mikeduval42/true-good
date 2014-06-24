@@ -1,34 +1,34 @@
 <div class="container">
 	<div class="row">
 		<div ng-hide="you.editing">
-		<h1 class="page_titles">PROFILE</h1><br>
-		<div ng-if="you.resident == true">
-			You are a Resident<br><br>
-		</div>
-		<div ng-if="you.volunteer == true">
-		<label for="volunteer"><strong>Volunteer</strong></label>
-			You are a Volunteer<br><br>
-		</div>
-		<div ng-if="you.corporation == true">
-		<label for="corporation"><strong>Organization</strong></label>
-			You are an Organization<br><br>
-		</div>
-		<label for="name"><strong>Name</strong></label>
-			{{you.name}}<br><br>
-		<label for="email"><strong>Email</strong></label>
-			{{you.email}}<br><br>
+		  <h1 class="page_titles">PROFILE</h1><br>
+		  <div ng-if="you.resident == true">
+			 You are a Resident<br><br>
+		  </div>
+		  <div ng-if="you.volunteer == true">
+		    <label for="volunteer"><strong>Volunteer</strong></label>
+			   You are a Volunteer<br><br>
+		  </div>
+  		<div ng-if="you.corporation == true">
+  		  <label for="corporation"><strong>Organization</strong></label>
+  			You are an Organization<br><br>
+  		</div>
+  		  <label for="name"><strong>Name</strong></label>
+  			{{you.name}}<br><br>
+  		  <label for="email"><strong>Email</strong></label>
+  			{{you.email}}<br><br>
 
-		<label for="address"><strong>Address</strong></label>
-			{{you.address}}<br><br>
-		<label for="city"><strong>City</strong></label>
-			{{you.city}}<br><br>
-		<label for="state"><strong>State</strong></label>
-			{{you.state}}<br><br>
-		<label for="zip"><strong>ZIP</strong></label>
-			{{you.zip}}<br>
-			<br>
-		<a ng-click="editUser(you);" class="btn btn-info"> EDIT </a>
-		</div>
+  		  <label for="address"><strong>Address</strong></label>
+  			{{you.address}}<br><br>
+  		  <label for="city"><strong>City</strong></label>
+  			{{you.city}}<br><br>
+  		  <label for="state"><strong>State</strong></label>
+  			{{you.state}}<br><br>
+  		  <label for="zip"><strong>ZIP</strong></label>
+  			{{you.zip}}<br>
+  			<br>
+  		<a ng-click="editUser(you);" class="btn btn-info"> EDIT </a>
+  	</div>
 		<div ng-show="you.editing">
 			<h1>Edit Profile</h1>
 			<a ng-click="backUser(you)" class="btn btn-info">BACK </a>
@@ -47,7 +47,7 @@
                 <input ng-model="you.password" type="password" name="password" class="form-control" placeholder="Password">
               </div>
               <div>
-				<label for="resident"><strong>Resident</strong></label>
+				        <label for="resident"><strong>Resident</strong></label>
                 <input ng-model="you.resident" type="checkbox" name="resident" class="form-control">
               </div>
               <div>
@@ -70,11 +70,11 @@
               	<label for="city"><strong>City</strong></label>
                 <input ng-model="you.city" type="text" name="city" class="form-control" placeholder="City">
               </div>
-               <div>
+              <div>
                	<label for="state"><strong>State</strong></label>
                 <input ng-model="you.state" type="text" name="state" class="form-control" placeholder="State">
               </div>
-               <div>
+              <div>
                	<label for="zip"><strong>ZIP</strong></label>
                 <input ng-model="you.zip" type="text" name="zip" class="form-control" placeholder="ZIP">
               </div>
@@ -85,3 +85,5 @@
         </div>
     </div>
 </div>
+
+
