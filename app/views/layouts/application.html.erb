@@ -48,21 +48,6 @@
                     <li>
                       <a ui-sref="good_in_numbers">Good in Numbers</a>
                     </li><br>
-                  <%if current_user %>
-                    <% if current_user.resident == true%>
-                      <li>
-                        <a ui-sref="resident_profile">rProfile</a>
-                      </li><br>
-                    <%elsif current_user.volunteer == true%>
-                      <li>
-                        <a ui-sref="volunteer_profile">vProfile</a>
-                      </li><br>
-                    <%elsif current_user.corporation == true%>
-                      <li>
-                        <a ui-sref="corporation_profile">cProfile</a>
-                      </li>
-                    <%end%>
-                  <%end%>
                   </ul>
                 </li> 
                 <%if current_user%>
@@ -103,7 +88,6 @@
               <!-- Right Nav Section -->
             <ul class="right">
               <% if !current_user %>
-                <li>
                   <a href="#" data-reveal-id="myModal3"><strong>Sign In</strong></a>
                     <div id="myModal3" class="reveal-modal" data-reveal>
                       <%= render :partial => 'sessions/new' %>
@@ -119,6 +103,9 @@
                 </li>
 
               <% else %>
+                <li>
+                  <a ui-sref="resident_profile">Profile</a>
+                <li>
                 <li>
                   <%= link_to "Sign Out", sessions_path, :method => :delete , style: 'font-weight:bold;'%>
                 </li>

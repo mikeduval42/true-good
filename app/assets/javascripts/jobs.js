@@ -73,11 +73,19 @@ jobApp.controller('JobCtrl', ['$scope','Job', 'You', function($scope, Job, You) 
       $scope.you = you;
     });
    
-    
-    // $scope.aside = {
-    //   "title": "GA Sidebar",
-    //   "content": "Hello GA STUDENTS!!<br />This is a multiline message!"
-    // };
+   $scope.editUser = function(you) {
+    you.editing = true;
+    you.details = false;
+   }
+   $scope.backUser = function(you) {
+      you.editing = false;
+    }
+   $scope.updateUser   = function(you) {
+      you.$update(function() {
+        you.editing = false;
+      });
+    }
+   
     $scope.saveJob = function () {
       $scope.newJob.$save(function(job) {
         $scope.jobs.unshift(job)

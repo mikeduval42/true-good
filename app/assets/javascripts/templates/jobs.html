@@ -40,7 +40,7 @@
                       <a ng-click="hideJob(job);" class="btn btn-info"> HIDE </a>
                     </span> -->
                 <!--   <div ng-hide="{{job.user_id}} == {{current_user.id}}"> -->
-                  <div ng-hide="{{job.user_id}} == {{job.user.id}}"
+                  <div ng-hide="{{you.id}} == {{job.user.id}}"
                     <span ng-hide="job.editing">
                       <a ng-click="editJob(job);" class="btn btn-info"> EDIT </a>
                     </span>
@@ -91,6 +91,6 @@
         </tbody>
       </table>
     </div>
-            {{current_user.name}}
+          
   </div>
 </div>
