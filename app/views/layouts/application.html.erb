@@ -86,9 +86,9 @@
             </ul>
 
               <!-- Right Nav Section -->
-              <% if current_user %>
-            <ul class="right">
 
+            <ul class="right">
+              <% if current_user %>
                 <li>
                   <a ui-sref="resident_profile">Profile</a>
                 </li>
@@ -112,9 +112,9 @@
                     <a class="close-reveal-modal">&#215;</a>
                   </div>
                 </li>
-
+              <% end %>
             </ul>
-            <% end %>
+
           </section>
 </nav>
 <!-- nav bar above - no formatted yet! -->
