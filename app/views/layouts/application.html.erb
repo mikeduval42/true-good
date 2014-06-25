@@ -86,8 +86,9 @@
             </ul>
 
               <!-- Right Nav Section -->
-            <ul class="right">
               <% if current_user %>
+            <ul class="right">
+
                 <li>
                   <a ui-sref="resident_profile">Profile</a>
                 </li>
@@ -97,7 +98,7 @@
 
               <% else %>
 
-                              <li>
+                <li>
                   <a href="#" data-reveal-id="myModal3"><strong>Sign In</strong></a>
                     <div id="myModal3" class="reveal-modal" data-reveal>
                       <%= render :partial => 'sessions/new' %>
@@ -111,8 +112,9 @@
                     <a class="close-reveal-modal">&#215;</a>
                   </div>
                 </li>
-              <% end %>
+
             </ul>
+            <% end %>
           </section>
 </nav>
 <!-- nav bar above - no formatted yet! -->
