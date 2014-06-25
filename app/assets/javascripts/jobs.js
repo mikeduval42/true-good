@@ -79,9 +79,11 @@ jobApp.controller('JobCtrl', ['$scope','Job', 'You', 'User', function($scope, Jo
     you.editing = true;
     you.details = false;
    }
+
    $scope.backUser = function(you) {
       you.editing = false;
-    }
+   }
+
    $scope.updateUser = function(you) {
       you.$update(function() {
         you.editing = false;
@@ -120,7 +122,7 @@ jobApp.controller('JobCtrl', ['$scope','Job', 'You', 'User', function($scope, Jo
       job.editing = false;
     }
 
-    $scope.updateJob   = function(job) {
+    $scope.updateJob = function(job) {
       job.$update(function() {
         job.editing = false;
       // }, function(errors) {

@@ -25,3 +25,26 @@
   margin-bottom: 5%;
   text-align: center;
 }
+
+#searchbar {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.table {
+  margin: 0 auto;
+}
+
+#profileinfo {
+
+}
+
+#profile {
+
+}
+
+#profilecontent {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}

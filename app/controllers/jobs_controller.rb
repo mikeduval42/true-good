@@ -63,7 +63,7 @@ class JobsController < ApplicationController
 protected
 
   def set_params
-    params.require(:job).permit(:time_preference, :tools, :type_of_work, :duration, :recurring, :location, :contact_phone, :contact_email)
+    params.require(:job).permit(:time_preference, :tools, :type_of_work, :duration, :recurring, :location, :contact_phone, :contact_email, :created_at)
   end
 
 end

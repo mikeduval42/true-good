@@ -4,6 +4,7 @@
     <div class="form-group">
       <input ng-model="searchUser" name="searchbox" type="text" class="form-control search" id="searchbar" placeholder="Search">
     </div>
+    <br>
     <div class="scroll">
       <table class="table">
         <tr>
@@ -15,16 +16,18 @@
           <th><strong>State</strong></th>
           <th><strong>ZIP</strong></th>
         </tr>
-      <tbody id="resultsfield" ng-repeat="user in users | filter:searchUser ">
-        <tr>
-          <td>{{user.name}}</td>
-          <td>{{user.email}}</td>
-          <td>{{user.reference}}</td>
-          <td>{{user.background_check}}</td>
-          <td>{{user.city}}</td>
-          <td>{{user.state}}</td>
-          <td>{{user.zip}}</td>
-        </tr>
-    </tbody>
-	</div>
+        <tbody id="resultsfield" ng-repeat="user in users | filter:searchUser ">
+          <tr>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.reference}}</td>
+            <td>{{user.background_check}}</td>
+            <td>{{user.city}}</td>
+            <td>{{user.state}}</td>
+            <td>{{user.zip}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

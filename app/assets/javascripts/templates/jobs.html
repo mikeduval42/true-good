@@ -4,34 +4,35 @@
         <div class="form-group">
           <input ng-model="searchJob" name="searchbox" type="text" class="form-control search" id="searchbar" placeholder="Search">
         </div>
-
+        <br>
         <div class="scroll">
           <table class="table">
-              <tr>
-                <th><strong>Type of Work</strong></th>
-                <th><strong>Tools Needed</strong></th>
-                <th><strong>Time Preference</strong></th>
-                <th><strong>Job Duration</strong></th>
-                <th><strong>Recurring</strong></th>
-                <th><strong>Location</strong></th>
-                <th><strong>Phone Number</strong></th>
-                <th><strong>Email</strong></th>
-                <th><strong>Created By</strong></th>
-                <th><strong>Created At</strong></th>
-              </tr>
-              <tbody id="resultsfield" ng-repeat="job in jobs | filter:searchJob ">
+            <tr>
+              <th><strong>Type of Work</strong></th>
+              <th><strong>Tools Needed</strong></th>
+              <th><strong>Time Preference</strong></th>
+              <th><strong>Job Duration</strong></th>
+              <th><strong>Recurring</strong></th>
+              <th><strong>Location</strong></th>
+              <th><strong>Phone Number</strong></th>
+              <th><strong>Email</strong></th>
+              <th><strong>Created By</strong></th>
+              <th><strong>Created At</strong></th>
+              <th></th>
+            </tr>
+            <tbody id="resultsfield" ng-repeat="job in jobs | filter:searchJob ">
               <tr>
                 <td>{{job.type_of_work}}</td>
-                  <td>{{job.tools}}</td>
-                  <td>{{job.time_preference}}</td>
-                  <td>{{job.duration}}</td>
-                  <td>{{job.recurring}}</td>
-                  <td>{{job.location}}</td>
-                  <td>{{job.contact_phone}}</td>
-                  <td>{{job.contact_email}}</td>
-                  <td>{{job.user.name}}</td>
-                  <td>{{job.created_at}}</td>
-                  <td>
+                <td>{{job.tools}}</td>
+                <td>{{job.time_preference}}</td>
+                <td>{{job.duration}}</td>
+                <td>{{job.recurring}}</td>
+                <td>{{job.location}}</td>
+                <td>{{job.contact_phone}}</td>
+                <td>{{job.contact_email}}</td>
+                <td>{{job.user.name}}</td>
+                <td>{{job.created_at}}</td>
+                <td>
                     <!-- <span ng-hide="job.details">
                       <a ng-click="showJob(job);" class="btn btn-info" id="showicon"> SHOW </a>
                     </span>
@@ -86,10 +87,9 @@
                   </td>
                 </form>
               </tr>
-
-        </tbody>
-      </table>
-    </div>
+            </tbody>
+          </table>
+        </div>
 
   </div>
 </div>
