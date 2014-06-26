@@ -1,5 +1,5 @@
 <%= form_for :session, :url => sessions_path do |f| %>
   Email: <%= f.email_field :email %>
   Password: <%= f.password_field :password %>
-  <%= f.submit "login" %>
+  <%= f.submit "login", class:"btn btn-primary"%>
 <% end %>

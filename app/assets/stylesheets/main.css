@@ -3,7 +3,14 @@
     height: 100%;
   min-height: 100%;
 }
+body{
+  font-family: 'Josefin Slab', serif;
+}
 
+table{
+  min-width:750px;  
+}
+div{font-family: 'Josefin Slab', serif;}
 .name img{
   height:82px;
   width:110px;
@@ -18,18 +25,61 @@
   width: 100%;
 
 }
+.templates{
+  background-color:#f8f3d9;
+  width:100%;
+  height:100%;
+}
 .hsContainer {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  position: relative;
 }
 .hsContent1 {
   float:right;
   width:40%;
   margin-top:175px;
 }
+.hsContent2{
+  width:100%;
+  height:100%;
+  background-color:rgba(0,0,0,.45);
 
+ }
+
+ .hsContent2 div{
+    display:inline-block;
+ }
+#gmainfo{
+  padding-top:60px;
+  width:600px;
+  margin-left:100px;
+
+}
+#gmainfo p{
+  font-size: 25px;
+  color:white;
+}
+#gmainfo h2{
+  font-size:50px;
+  color:white;
+}
+#gmapic{
+  width:520px;
+ float:right;
+ padding-top:50px;
+ margin-right:100px;
+}
+
+.hsContent3{
+  width:100%;
+  height:100%;
+}
+.hsContent3 img{
+  height:90%;
+  margin-left:90px;
+  margin-top: 40px;
+}
 .hsContent4 img{
   height:70%;
   float:right;
@@ -43,30 +93,12 @@
 
 /* Slide 2 */
 #slide-2 .bcg {background-image:url('parallax9.jpg')}
-#slide-2 {
-  margin-left: -450px;
-  bottom: 200px;
-  top: auto;
-}
 
 /* Slide 3 */
 #slide-3 .bcg {background-image:url('parallax3.jpg')}
-#slide-3 {
-  margin-left: -239px;
-}
-  #slide-3 h2 {
-    color: #f2ead6;
-    background-color: rgba(0,0,0,0.6);
-  }
+
 
 /* Slide 4 */
 #slide-4 .bcg {background-image:url('mowing.jpeg')}
-#slide-4 {
-  margin-left: -450px;
-}
-  #slide-4 h2 {
-    background: none;
-    padding-left: 0;
-    padding-right: 0;
-  }
+
 
