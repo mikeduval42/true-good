@@ -33,13 +33,6 @@
                 <td>{{job.user.name}}</td>
                 <td>{{job.created_at}}</td>
                 <td>
-                    <!-- <span ng-hide="job.details">
-                      <a ng-click="showJob(job);" class="btn btn-info" id="showicon"> SHOW </a>
-                    </span>
-                    <span ng-show="job.details">
-                      <a ng-click="hideJob(job);" class="btn btn-info"> HIDE </a>
-                    </span> -->
-                <!--   <div ng-hide="{{job.user_id}} == {{current_user.id}}"> -->
                   <div ng-show="you.id == job.user.id">
                     <span ng-hide="job.editing">
                       <a ng-click="editJob(job);" class="btn btn-info"> EDIT </a>
@@ -48,7 +41,6 @@
                     <span ng-show="job.editing">
                       <a ng-click="backJob(job);" class="btn btn-info"> BACK </a>
                     </span>
-            <!--       </div> -->
                     <span>
                       <a ng-click="deleteJob(job);" class="btn btn-info"> DELETE </a>
                     </span>
@@ -63,7 +55,6 @@
                   <td>
                     <input ng-model="job.tools" type="text" name="tools" class="form-control" placeholder="Tools">
                   </td>
-
                   <td>
                     <input ng-model="job.time_preference" type="time" name="time_preference" class="form-control" placeholder="Time Preference">
                   </td>
@@ -90,6 +81,5 @@
             </tbody>
           </table>
         </div>
-
   </div>
 </div>
