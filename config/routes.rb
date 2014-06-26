@@ -1,8 +1,7 @@
 Truegood::Application.routes.draw do
 resources :users
 get 'you' => 'users#you'
-patch 'you' => 'you#update'
-put 'you' => 'you#update'
+patch 'you/:id' => 'users#update'
 
 resource :sessions
 resources :jobs

@@ -11,19 +11,21 @@
   <div ng-app="job-app" class="container">
     <div ng-controller="JobCtrl">
       <nav class="top-bar" data-topbar>
+
         <ul class="title-area">
           <li class="name">
-            <section class="top-bar-section">
-          <!-- Left Nav Section -->
+                  <img ng-src="/assets/logoheader.png">
+            <section class="top-bar-section" id="navbarR">
+            
               <ul class="left white">
+             
+                  
+         
                 <li>
               <!-- this is the about page pop up bow below -->
                   <a href="#" class="njob" data-reveal-id="myModal">About</a>
                   <div id="myModal" class="reveal-modal" data-reveal>
-                    <h2>trueGood</h2>
-                      <p>We created trueGood to connect the elderly and disabled with volunteers who have the desire to perform household tasks for them. Sign up and start spreading the trueGood.</p>
-                    <h3>Created By</h3>
-                      <p>Matt Kam and Mike Duval</p>
+                    <img id="imgAbout" ng-src="/assets/tgAbout.png">
                     <a class="close-reveal-modal">&#215;</a>
                   </div>
                 </li>
@@ -72,7 +74,7 @@
                       <button class="button" ng-click="ok()">OK</button>
                       <a class="close-reveal-modal" ng-click="cancel()">&#215;</a>
                     </script>
-                    <a ng-click="open()" style="color:white;">New Task</a>
+                    <a ng-click="open()" style="color:white;" class="left right">New Task</a>
                   </div>
                 </li>
                 <%end%>

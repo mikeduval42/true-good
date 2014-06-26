@@ -5,4 +5,15 @@
 .reveal-modal {
 	height:75%;
 	overflow-x:scroll;
+
+}
+#myModal.reveal-modal {
+	margin-top:-20px;
+	height:86%;
+	overflow-x:scroll;
+	background:rgba(0,0,0, 0.5);
+	}
+#myModal3.reveal-modal {
+	height:30%;
+	overflow-x:scroll;
 }

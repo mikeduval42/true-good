@@ -15,7 +15,14 @@
 .page_titles {
   text-align: center;
 }
+#navbarR{
+  margin-left:80px;
+}
+#imgAbout{
+  height:100%;
+  width:100%;
 
+}
 .good {
   text-align: center;
   font-weight: bold;

@@ -18,11 +18,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(param[:id])
+    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(param[:id])
+    @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       respond_to do |format|
         format.html {redirect_to jobs_path}
