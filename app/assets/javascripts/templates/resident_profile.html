@@ -32,8 +32,9 @@
   </div>
 		<div ng-show="you.editing">
 			<h1>Edit Profile</h1>
-			<a ng-click="backUser(you)" class="btn btn-info">BACK </a>
-            <form ng-submit="updateUser(you);" class="form-group">
+			<a ng-click="backUser(you)" class="btn btn-info"> BACK </a>
+      <a ng-click="updateUser(you)" class="btn btn-info"> Update </a>
+            <form class="form-group">
               <div>
               	<label for="name"><strong>Name</strong></label>
                 <input ng-model="you.name" type="text" name="name" class="form-control" placeholder="Name">
@@ -80,7 +81,7 @@
                 <input ng-model="you.zip" type="text" name="zip" class="form-control" placeholder="ZIP">
               </div>
               <div>
-              <input type="submit" value="Update Profile!" class="btn btn-primary">
+              <button type="submit" ng-click="updateUser(you)" class="btn btn-primary small" >Update</button>
               </div>
             </form>
         </div>

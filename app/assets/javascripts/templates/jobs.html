@@ -56,7 +56,7 @@
                   </td>
               </tr>
               <tr ng-show="job.editing">
-                <form ng-submit="updateJob(job);" class="form-group">
+                <form class="form-group">
                   <td>
                     <input ng-model="job.type_of_work" type="text" name="type_of_work" class="form-control" placeholder="Type of Work">
                   </td>
@@ -83,7 +83,7 @@
                     <input ng-model="job.contact_email" type="text" name="contact_email" class="form-control" placeholder="Email">
                   </td>
                   <td>
-                  <input type="submit" value="Update Job!" class="btn btn-primary">
+                  <button type="submit" ng-click="updateJob(job)" class="btn btn-primary small">Button</button>
                   </td>
                 </form>
               </tr>
