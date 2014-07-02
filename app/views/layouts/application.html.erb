@@ -1,4 +1,3 @@
-<html lang="en">
   <head>
     <link href='http://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
     <meta charset="utf-8" />
@@ -12,16 +11,11 @@
   <div ng-app="job-app" class="container">
     <div ng-controller="JobCtrl">
       <nav class="top-bar" data-topbar>
-
         <ul class="title-area">
-          <li class="name">
-                  <img ng-src="/assets/logoheader.png">
+          <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        </ul>
             <section class="top-bar-section" id="navbarR">
-            
               <ul class="left white">
-             
-                  
-         
                 <li>
               <!-- this is the about page pop up bow below -->
                   <a href="#" class="njob" data-reveal-id="myModal">About</a>
@@ -47,7 +41,7 @@
                     </li><br>
                   </ul>
                 </li>
-                <%if current_user%>
+              <%if current_user%>
                 <li>
               <!-- this is an attempt at a new resource page! -->
                   <div ng-controller="ModalCtrl" >
@@ -108,8 +102,5 @@
               </ul>
             </section>
       </nav>
-
   <%= yield %>
-
   </body>
-</html>

@@ -65,10 +65,10 @@ div{font-family: 'Josefin Slab', serif;}
   color:white;
 }
 #gmapic{
-  width:520px;
- float:right;
- padding-top:50px;
- margin-right:100px;
+width:520px;
+float:right;
+padding-top:50px;
+margin-right:100px;
 }
 
 .hsContent3{
@@ -101,4 +101,64 @@ div{font-family: 'Josefin Slab', serif;}
 /* Slide 4 */
 #slide-4 .bcg {background-image:url('mowing.jpeg')}
 
+@media screen and (max-width:600px) {
 
+  .hsContent1#image1 {
+    margin-top: 6em;
+    width: 280px;
+    padding-right: 2.5em;
+  }
+  .top-bar img {
+    display: none;
+  }
+
+  #gmainfo {
+    width: 300px;
+    padding-top: 10px;
+    margin-left: 10px;
+    text-align: center;
+  }
+  #gmainfo h2 {
+    font-size: 2em;
+  }
+  #gmainfo p {
+    font-size: .75em;
+    padding-top: 7em;
+  }
+  #gmainfo #signature{
+    font-size: .75em;
+    padding-top: 2em;
+  }
+
+  .hsContent2 #gmapic {
+    height: 5em;
+    width: 5em;
+    float: left;
+    margin-top: -400px;
+    margin-left: 115px;
+  }
+
+  .hsContent3 {
+    width: 300px;
+    padding-top: 2em;
+    margin-left: 1em;
+  }
+  .hsContent3 img{
+    height: 300px;
+    margin-left: 0em;
+    margin-top: 3em;
+  }
+
+  .hsContent4 {
+    width: 300px;
+    padding-top: 2em;
+    margin-left: 1em;
+  }
+  .hsContent4 img {
+    height: 300px;
+    margin-left: 1em;
+    margin-top: 3em;
+    float: none;
+  }
+
+}
