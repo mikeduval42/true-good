@@ -17,3 +17,57 @@
 	height:30%;
 	overflow-x:scroll;
 }
+.scroll{
+	padding:1px;
+	width:95%;
+	overflow-x:scroll;
+	height:75%;
+	margin:0 auto;
+
+}
+#resultsfield{
+	display:inline-block;
+	vertical-align: top;
+	height:585px;
+	width:335px;
+	overflow:hidden;
+	padding: 10px 10px 50px 10px;
+	box-shadow: 0px 1px 1px;
+	margin:5px;
+	background-color: #f0e5d2;
+}
+#workcontainer{
+	margin:15px;
+	width:280px;
+	height:500px;
+}
+#type{
+}
+#tools{
+}
+#time{
+}
+#duration{
+}
+#recurring{
+}
+#location{
+}
+#contact{
+}
+#username{
+}
+#createdat{
+}
+.jobslabel{ 
+	height: 48px;
+}
+.size{
+	font-size: 25px !important;
+	margin:2px;
+}
+.content p{
+	margin-top:-15px;
+	margin-bottom:-10px;
+	font-size:20px;
+}

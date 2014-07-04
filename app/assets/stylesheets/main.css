@@ -6,10 +6,6 @@
 body{
   font-family: 'Josefin Slab', serif;
 }
-
-table{
-  min-width:750px;
-}
 div{
   font-family: 'Josefin Slab', serif;
   text-align: center;
@@ -171,30 +167,6 @@ margin-right:100px;
   height: 50%;
   margin-top: 5em;
   }
-
-/*  .container .row {
-    border: 1px solid pink;
-  }
-  .scroll .table {
-    border: 1px solid blue;
-  }
-*/
-  /*table, tr, tbody, td {
-    display: block;
-  }
-  table tr {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-  }
-  tr {
-    border: 1px solid #ccc;
-  }*/
-
-
-
-
-
 
 
 }
