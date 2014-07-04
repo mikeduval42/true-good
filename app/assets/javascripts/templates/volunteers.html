@@ -1,33 +1,43 @@
 <div class="container templates">
-	<div class="row">
-		<h1 class="page_titles">VOLUNTEERS</h1>
-    <div class="form-group">
-      <input ng-model="searchUser" name="searchbox" type="text" class="form-control search" id="searchbar" placeholder="Search">
-    </div>
-    <br>
-    <div class="scroll">
-      <table class="table">
-        <tr>
-          <th><strong>Name</strong></th>
-          <th><strong>Email</strong></th>
-          <th><strong>Reference</strong></th>
-          <th><strong>Background Check</strong></th>
-          <th><strong>City</strong></th>
-          <th><strong>State</strong></th>
-          <th><strong>ZIP</strong></th>
-        </tr>
-        <tbody id="resultsfield" ng-repeat="user in users | filter:searchUser ">
-          <tr>
-            <td>{{user.name}}</td>
-            <td>{{user.email}}</td>
-            <td>{{user.reference}}</td>
-            <td>{{user.background_check}}</td>
-            <td>{{user.city}}</td>
-            <td>{{user.state}}</td>
-            <td>{{user.zip}}</td>
-          </tr>
-        </tbody>
-      </table>
+	<h1 class="page_titles">VOLUNTEERS</h1>
+  <div class="form-group">
+    <input ng-model="searchUser" name="searchbox" type="text" class="form-control search" id="searchbar" placeholder="Search">
+  </div><br>
+  <div class="scroll">
+    <div id="resultsfieldtwo" ng-repeat="user in users | filter:searchUser ">
+      <div id="workcontainertwo">          
+        <div id="name">
+          <div class="jobslabel"><p class="size"><strong>Name</strong></p></div>
+          <div class="content"><p>{{user.name}}</p></div>
+        </div>
+        <div id="reference">
+          <div class="jobslabel"><p class="size"><strong>Reference</strong></p></div>
+          <div class="content"><p>{{user.reference}}</p></div>
+        </div>
+        <div id="background">
+          <div class="jobslabel"><p class="size"><strong>Background Check</strong></p></div>
+          <div class="content"><p>{{user.background_check}}</p></div>
+        </div>
+        <div id="city">
+          <div class="jobslabel"><p class="size"><strong>City</strong></p></div>
+          <div class="content"><p>{{user.city}}</p></div>
+        </div>
+        <div id="state">
+          <div class="jobslabel"><p class="size"><strong>State</strong></p></div>
+          <div class="content"><p>{{user.state}}</p></div>
+        </div>
+        <div id="zip">
+          <div class="jobslabel"><p class="size"><strong>ZIP</strong></p></div>
+          <div class="content"><p>{{user.zip}}</p></div>
+        </div>
+        <div id="email">
+          <div class="content">
+            <p>
+              <a class="size" href="mailto:{{user.email}}?subject=Please Help, Do TrueGood">CONTACT</a>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
