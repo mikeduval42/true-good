@@ -10,7 +10,10 @@ body{
 table{
   min-width:750px;
 }
-div{font-family: 'Josefin Slab', serif;}
+div{
+  font-family: 'Josefin Slab', serif;
+  text-align: center;
+}
 .name img{
   height:82px;
   width:110px;
@@ -86,6 +89,9 @@ margin-right:100px;
   margin-top:120px;
   margin-right:40px;
 }
+#newtask {
+  color:white;
+}
 
 
 /* Slide 1 */
@@ -160,5 +166,35 @@ margin-right:100px;
     margin-top: 3em;
     float: none;
   }
+
+  #myModal #imgAbout{
+  height: 50%;
+  margin-top: 5em;
+  }
+
+/*  .container .row {
+    border: 1px solid pink;
+  }
+  .scroll .table {
+    border: 1px solid blue;
+  }
+*/
+  /*table, tr, tbody, td {
+    display: block;
+  }
+  table tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  tr {
+    border: 1px solid #ccc;
+  }*/
+
+
+
+
+
+
 
 }

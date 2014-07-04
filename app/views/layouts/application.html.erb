@@ -12,10 +12,15 @@
     <div ng-controller="JobCtrl">
       <nav class="top-bar" data-topbar>
         <ul class="title-area">
-          <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+          <li class="name"/>
+          <li class="toggle-topbar menu-icon">
+            <a href="#">
+              <span>Menu</span>
+            </a>
+          </li>
         </ul>
             <section class="top-bar-section" id="navbarR">
-              <ul class="left white">
+              <ul>
                 <li>
               <!-- this is the about page pop up bow below -->
                   <a href="#" class="njob" data-reveal-id="myModal">About</a>
@@ -28,7 +33,7 @@
                   <a ui-sref="home">Home</a>
                 </li>
                 <li>
-                  <a dropdown-toggle="#dropdown-example-1" class="left white">Options</a>
+                  <a dropdown-toggle="#dropdown-example-1">Options</a>
                   <ul id="dropdown-example-1" >
                     <li>
                       <a ui-sref="jobs">Job</a>
@@ -69,7 +74,7 @@
                       <button class="button" ng-click="ok()">OK</button>
                       <a class="close-reveal-modal" ng-click="cancel()">&#215;</a>
                     </script>
-                    <a ng-click="open()" style="color:white;" class="left right">New Task</a>
+                    <a ng-click="open()" id="newtask">New Task</a>
                   </div>
                 </li>
                 <%end%>
@@ -103,4 +108,5 @@
             </section>
       </nav>
   <%= yield %>
+
   </body>
