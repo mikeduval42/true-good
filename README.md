@@ -8,5 +8,5 @@
 
 * The app utilizes Angular, Angular Routing, Ruby on Rails, HTML, Foundation, and CSS.
 
-* Check out what we created <a href="truegood.herokuapp.com">here</a>.
+* Check out what we created <a href="http://truegood.herokuapp.com">here</a>.
 
