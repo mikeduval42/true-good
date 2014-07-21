@@ -48,7 +48,22 @@
 #edit {
   background-color: #f8f3d9;
 }
-
+#edit #jobs{
+  background-color: #f0e5d2;
+  width: 317px;
+}
+#jobsnav {
+  width: 135px;
+}
+#volunteernav{
+  width: 135px;
+}
+#gin{
+  width: 135px;
+}
+ul li a {
+  margin: 0 auto;
+}
 .top-bar-section li:not(.has-form) a:not(.button){
   padding:0 6px !important;
   text-align: center !important;

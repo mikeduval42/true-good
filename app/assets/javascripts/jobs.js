@@ -36,6 +36,10 @@ jobApp.config(function($stateProvider, $urlRouterProvider) {
       url: "/resident_profile",
       templateUrl: "resident_profile.html"
      })
+    .state('update_jobs', {
+      url: "/update_jobs",
+      templateUrl: "update_jobs.html"
+     })
    });
 
 jobApp.factory('Job', ['$resource', function($resource) {
@@ -82,6 +86,7 @@ jobApp.controller('JobCtrl', ['$scope','Job', 'You', 'User', function($scope, Jo
 
    $scope.backUser = function(you) {
       you.editing = false;
+      location.reload();
    }
 
    $scope.updateUser = function(you) {
@@ -119,11 +124,14 @@ jobApp.controller('JobCtrl', ['$scope','Job', 'You', 'User', function($scope, Jo
     }
 
     $scope.backJob = function(job) {
+      job.details = true;
       job.editing = false;
+      location.reload();
     }
 
     $scope.updateJob = function(job) {
       job.$update(function() {
+        job.details = true;
         job.editing = false;
       // }, function(errors) {
       //   $scope.errors = errors.data
