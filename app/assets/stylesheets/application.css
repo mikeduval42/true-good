@@ -12,6 +12,12 @@
  *= require foundation_and_overrides
  *= require_tree .
  */
+#sessions {
+  background-color: #f8f3d9;
+  height: 100%;
+  width: 100%;
+  padding-top: 8%
+}
 .page_titles {
   text-align: center;
 }
