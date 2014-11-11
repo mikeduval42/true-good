@@ -41,16 +41,19 @@
   margin: 0 auto;
 }
 
-#statspage {
-  background-color: #f8f3d9;
+div#statspage {
+  background: #fafafa;
+  background-image: url("ZenBG-1.png"), url("ZenBG-2.png");
+  background-repeat: repeat-x, repeat;
+  width:100%;
+  height:auto;
+  color: white;
 }
-
 #profilecontent {
   width: 50%;
   margin: 0 auto;
   text-align: center;
 }
-
 #edit {
   background-color: #f8f3d9;
 }

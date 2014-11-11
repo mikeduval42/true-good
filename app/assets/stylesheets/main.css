@@ -22,12 +22,17 @@ div{
   background-size: cover;
   height: 100%;
   width: 100%;
-
 }
 .templates{
-  background-color:#f8f3d9;
+  background: #fafafa;
+  background-image: url("ZenBG-1.png"), url("ZenBG-2.png");
+  background-repeat: repeat-x, repeat;
   width:100%;
   height:100%;
+}
+h1.page_titles {
+  margin-top: 0em;
+  padding-top: 1em;
 }
 .hsContainer {
   width: 100%;
@@ -64,7 +69,7 @@ div{
   color:white;
 }
 #gmapic{
-width:520px;
+width:425px;
 float:right;
 padding-top:50px;
 margin-right:100px;
@@ -103,6 +108,24 @@ margin-right:100px;
 /* Slide 4 */
 #slide-4 .bcg {background-image:url('mowing.jpeg')}
 
+ #back-top {
+    position: fixed;
+    bottom: 1.25em;
+    right: 1em;
+    text-decoration: none;
+    color: white !important;
+    font-size: 12px;
+    width: 80px;
+  }
+  #back-top img {
+    height: 80px;
+    width: 88px;
+  }
+  #back-top h5 {
+    margin-top: -3.2em !important;
+    padding-left: 1em;
+  }
+
 @media screen and (max-width:600px) {
 
   .hsContent1#image1 {
@@ -125,19 +148,18 @@ margin-right:100px;
   }
   #gmainfo p {
     font-size: .75em;
-    padding-top: 7em;
+    padding-top: 15em;
   }
   #gmainfo #signature{
     font-size: .75em;
     padding-top: 2em;
   }
 
-  .hsContent2 #gmapic {
-    height: 5em;
-    width: 5em;
-    float: left;
-    margin-top: -400px;
-    margin-left: 115px;
+ #gmapic {
+    height: 8em;
+    width: 8em;
+    margin-top: -30em;
+    vertical-align: middle;
   }
 
   .hsContent3 {
@@ -147,8 +169,8 @@ margin-right:100px;
   }
   .hsContent3 img{
     height: 300px;
-    margin-left: 0em;
-    margin-top: 3em;
+    margin-left: -1em;
+    margin-top: 4em;
   }
 
   .hsContent4 {
@@ -167,6 +189,5 @@ margin-right:100px;
   height: 50%;
   margin-top: 5em;
   }
-
 
 }

@@ -29,13 +29,16 @@
 	display:inline-block;
 	vertical-align: top;
 	height:585px;
-	width:335px;
+	width:300px;
 	overflow:hidden;
 	padding: 10px 10px 50px 10px;
 	box-shadow: 0px 1px 1px;
 	margin:5px;
-	background-color: #f0e5d2;
+	background-color: #BEBCBA;
 }
+div#resultsfield.ng-scope {
+    overflow-x:hidden;
+  }
 #resultsfieldtwo{
 	display:inline-block;
 	vertical-align: top;
@@ -45,7 +48,7 @@
 	padding: 10px 10px 50px 10px;
 	box-shadow: 0px 1px 1px;
 	margin:5px;
-	background-color: #f0e5d2;
+	background-color: #BEBCBA;
 }
 #workcontainer{
 	margin:15px;
@@ -57,7 +60,7 @@
 	width:280px;
 	height:390px;
 }
-.jobslabel{ 
+.jobslabel{
 	height: 48px;
 }
 .size{

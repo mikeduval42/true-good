@@ -3,6 +3,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= content_for?(:title) ? yield(:title) : "trueGood" %></title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
@@ -108,5 +109,28 @@
             </section>
       </nav>
   <%= yield %>
-
+  <a href="#" id="back-top"><img src='assets/uparrow.png'></a>
   </body>
+  <script type="text/javascript">
+            // Assuming jQuery.noConflict(); has been called
+            jQuery(function () {
+                jQuery(document).ready(function () {
+                    jQuery("#back-top").hide();
+                    jQuery(function () {
+                        jQuery(window).scroll(function () {
+                            if (jQuery(this).scrollTop() > 200) {
+                                jQuery('#back-top').fadeIn('slow');
+                            } else {
+                                jQuery('#back-top').fadeOut('slow');
+                            }
+                        });
+                        jQuery('#back-top').click(function () {
+                            jQuery('body,html').animate({
+                                scrollTop : 0
+                            }, 1000);
+                            return false;
+                        });
+                    });
+                });
+            });
+        </script>
