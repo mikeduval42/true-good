@@ -125,7 +125,12 @@ margin-right:100px;
     margin-top: -3.2em !important;
     padding-left: 1em;
   }
-
+  .newColor {
+    color: red !important;
+  }
+  #newColor {
+    color: red !important;
+  }
 @media screen and (max-width:600px) {
 
   .hsContent1#image1 {

@@ -26,26 +26,26 @@
               <ul>
                 <li>
               <!-- this is the about page pop up bow below -->
-                  <a href="#" class="njob" data-reveal-id="myModal">About</a>
+                  <a href="#" class="change-color" class="njob" data-reveal-id="myModal">About</a>
                   <div id="myModal" class="reveal-modal" data-reveal>
                     <img id="imgAbout" ng-src="/assets/tgAbout.png">
                     <a class="close-reveal-modal">&#215;</a>
                   </div>
                 </li>
                 <li>
-                  <a ui-sref="home">Home</a>
+                  <a ui-sref="home" class="change-color">Home</a>
                 </li>
                 <li>
-                  <a dropdown-toggle="#dropdown-example-1">Options</a>
+                  <a dropdown-toggle="#dropdown-example-1" class="change-color">Options</a>
                   <ul id="dropdown-example-1" >
                     <li>
-                      <a ui-sref="jobs" id="jobsnav">Job</a>
+                      <a ui-sref="jobs" id="jobsnav" class="change-color">Job</a>
                     </li><br>
                     <li>
-                      <a ui-sref="volunteers" id="volunteernav">Volunteers</a>
+                      <a ui-sref="volunteers" id="volunteernav" class="change-color">Volunteers</a>
                     </li><br>
                     <li>
-                      <a ui-sref="good_in_numbers" id="gin">Good in Numbers</a>
+                      <a ui-sref="good_in_numbers" id="gin" class="change-color">Good in Numbers</a>
                     </li><br>
                   </ul>
                 </li>
@@ -77,7 +77,7 @@
                       <button class="button" ng-click="ok()">OK</button>
                       <a class="close-reveal-modal" ng-click="cancel()">&#215;</a>
                     </script>
-                    <a ng-click="open()" id="newtask">New Task</a>
+                    <a ng-click="open()" class="change-color" id="newtask">New Task</a>
                   </div>
                 </li>
                 <%end%>
@@ -86,14 +86,14 @@
               <ul class="right">
                 <% if current_user %>
                   <li>
-                    <a ui-sref="resident_profile">Profile</a>
+                    <a ui-sref="resident_profile" class="change-color">Profile</a>
                   </li>
                   <li>
                     <%= link_to "Sign Out", sessions_path, :method => :delete %>
                   </li>
                 <% else %>
                   <li>
-                    <a href="#" data-reveal-id="myModal3">Sign In</a>
+                    <a href="#" data-reveal-id="myModal3" class="change-color">Sign In</a>
                       <div id="myModal3" class="reveal-modal" data-reveal>
                         <%= render :partial => 'sessions/new' %>
                         <a class="close-reveal-modal">&#215;</a>
@@ -135,5 +135,14 @@
               });
           });
       });
+  </script>
+
+  <script>
+     $('.change-color').hover(function () {
+      $(this).addClass('newColor');
+    },
+    function () {
+      $(this).removeClass('newColor');
+    });
   </script>
   </html>
