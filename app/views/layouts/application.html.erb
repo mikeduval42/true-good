@@ -1,3 +1,5 @@
+<!DOCTYPE htmml>
+  <html>
   <head>
     <link href='http://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
     <meta charset="utf-8" />
@@ -112,25 +114,26 @@
   <a href="#" id="back-top"><img src='assets/uparrow.png'></a>
   </body>
   <script>
-            // Assuming jQuery.noConflict(); has been called
-            jQuery(function () {
-                jQuery(document).ready(function () {
-                    jQuery("#back-top").hide();
-                    jQuery(function () {
-                        jQuery(window).scroll(function () {
-                            if (jQuery(this).scrollTop() > 200) {
-                                jQuery('#back-top').fadeIn('slow');
-                            } else {
-                                jQuery('#back-top').fadeOut('slow');
-                            }
-                        });
-                        jQuery('#back-top').click(function () {
-                            jQuery('body,html').animate({
-                                scrollTop : 0
-                            }, 1000);
-                            return false;
-                        });
-                    });
-                });
-            });
-        </script>
+      // Assuming jQuery.noConflict(); has been called
+      jQuery(function () {
+          jQuery(document).ready(function () {
+              jQuery("#back-top").hide();
+              jQuery(function () {
+                  jQuery(window).scroll(function () {
+                      if (jQuery(this).scrollTop() > 200) {
+                          jQuery('#back-top').fadeIn('slow');
+                      } else {
+                          jQuery('#back-top').fadeOut('slow');
+                      }
+                  });
+                  jQuery('#back-top').click(function () {
+                      jQuery('body,html').animate({
+                          scrollTop : 0
+                      }, 1000);
+                      return false;
+                  });
+              });
+          });
+      });
+  </script>
+  </html>
