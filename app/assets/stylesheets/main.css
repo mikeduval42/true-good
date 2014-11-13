@@ -126,7 +126,7 @@ margin-right:100px;
     padding-left: 1em;
   }
   .newColor {
-    color: red !important;
+    color: #0cfeb7 !important;
   }
 
 @media screen and (max-width:600px) {
