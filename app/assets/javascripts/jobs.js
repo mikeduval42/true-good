@@ -180,3 +180,4 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, Job) {
     $modalInstance.dismiss('cancel');
   };
 };
+

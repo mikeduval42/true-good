@@ -128,9 +128,7 @@ margin-right:100px;
   .newColor {
     color: red !important;
   }
-  #newColor {
-    color: red !important;
-  }
+
 @media screen and (max-width:600px) {
 
   .hsContent1#image1 {

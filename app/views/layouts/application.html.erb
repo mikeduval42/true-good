@@ -115,19 +115,19 @@
   </body>
   <script>
       // Assuming jQuery.noConflict(); has been called
-      jQuery(function () {
-          jQuery(document).ready(function () {
-              jQuery("#back-top").hide();
-              jQuery(function () {
-                  jQuery(window).scroll(function () {
-                      if (jQuery(this).scrollTop() > 200) {
-                          jQuery('#back-top').fadeIn('slow');
+      $(function () {
+          $(document).ready(function () {
+              $("#back-top").hide();
+              $(function () {
+                  $(window).scroll(function () {
+                      if ($(this).scrollTop() > 200) {
+                          $('#back-top').fadeIn('slow');
                       } else {
-                          jQuery('#back-top').fadeOut('slow');
+                          $('#back-top').fadeOut('slow');
                       }
                   });
-                  jQuery('#back-top').click(function () {
-                      jQuery('body,html').animate({
+                  $('#back-top').click(function () {
+                      $('body,html').animate({
                           scrollTop : 0
                       }, 1000);
                       return false;
